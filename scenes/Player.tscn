@@ -122,5 +122,21 @@ one_shot = true
 [node name="PoopTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="FertilizerTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FeatherTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MultitoolTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="EggTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="FootballTimer" to="." method="_on_football_timer_timeout"]
 [connection signal="timeout" from="PoopTimer" to="." method="_on_poop_timer_timeout"]
+[connection signal="timeout" from="FertilizerTimer" to="." method="_on_fertilizer_timer_timeout"]
+[connection signal="timeout" from="FeatherTimer" to="." method="_on_feather_timer_timeout"]
+[connection signal="timeout" from="MultitoolTimer" to="." method="_on_multitool_timer_timeout"]
+[connection signal="timeout" from="EggTimer" to="." method="_on_egg_timer_timeout"]

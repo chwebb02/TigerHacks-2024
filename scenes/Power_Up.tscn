@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://do1w88xt1gdue"]
+[gd_scene load_steps=4 format=3 uid="uid://ftupeoq6dc04"]
 
 [ext_resource type="Script" path="res://scripts/power_up.gd" id="1_mw3f4"]
 [ext_resource type="Texture2D" uid="uid://cart2wokhaycd" path="res://assets/Powerups/feather.png" id="2_medgp"]

@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-
+signal throw_egg
 
 # Player 1 or two (can be extended later)
 @export var player_number: int = 1
@@ -12,8 +11,28 @@ extends CharacterBody2D
 @export var slowdown_factor: float = 0.05
 @export var stop_tolerance: float = 32
 
+# Power-up constants
+@export var fertilizer_min_time: float = 1.2
+@export var fertilizer_max_time: float = 3.7
+@export var feather_min_time: float = 1.5
+@export var feather_max_time: float = 2.9
+@export var multitool_min_time: float = 1
+@export var multitool_max_time: float = 1.8
+@export var feather_speedup_factor: float = 0.5
+
+# Debuff constants
+@export var football_min_time: float = 1.2
+@export var football_max_time: float = 5.8
+@export var egg_min_time: float = 3.0
+@export var egg_max_time: float = 4.3
+@export var poop_min_time: float = 2.2
+@export var poop_max_time: float = 4.9
+@export var poop_slowdown_factor: float = 0.4
+
 # Modifier for max_speed
 var speed_modifier: float = 1
+var yield_modifier: float = 1
+var multitool_enabled: bool = false
 
 # For tools
 var tool_cursor: int = 0
@@ -22,31 +41,31 @@ var tools_enabled: Dictionary = {"scythe": true, "hoe": true, "shovel": true}
 
 # Define the player number
 var player: String = "player_"
-func _ready():
+func _ready() -> void:
 	player = player + str(player_number) + "_"
 
-var dir = "down"
 # Handle movement for a single frame
-func handle_movement():
+var dir = "down"
+func handle_movement() -> void:
 	var velocity_change = Vector2(0, 0)
 	
 	# Modify movement direction based on user input
 	if Input.is_action_pressed(player + "right"):
-		velocity_change.x += acceleration
+		velocity_change.x += acceleration * speed_modifier
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("side")
 		dir = "side"
 	if Input.is_action_pressed(player + "left"):
-		velocity_change.x -= acceleration
+		velocity_change.x -= acceleration * speed_modifier
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play("side")
 		dir = "side"
 	if Input.is_action_pressed(player + "up"):
-		velocity_change.y -= acceleration
+		velocity_change.y -= acceleration * speed_modifier
 		$AnimatedSprite2D.play("up")
 		dir = "up"
 	if Input.is_action_pressed(player + "down"):
-		velocity_change.y += acceleration
+		velocity_change.y += acceleration * speed_modifier
 		$AnimatedSprite2D.play("down")
 		dir = "down"
 	
@@ -71,7 +90,7 @@ func handle_movement():
 	# Actually move around
 	move_and_slide()
 
-func switch_tool():
+func switch_tool() -> void:
 	var i = 0
 	while i < 3:
 		tool_cursor = (tool_cursor + 1) % len(tools)
@@ -90,3 +109,54 @@ func _process(delta: float) -> void:
 		if tools_enabled[tools[tool_cursor]]:
 			var sig = "use_" + tools[tool_cursor]
 			emit_signal(sig)
+
+func disable_tool():
+	tools_enabled[tools[tool_cursor]] = false
+	switch_tool()
+
+func display_egg():
+	emit_signal("throw_egg", player_number)
+
+func _on_debuff(type: String) -> void:
+	if (type == "football"):
+		disable_tool()
+		$FootballTimer.start(randf_range(football_min_time, football_max_time))
+	elif (type == "egg"):
+		display_egg()
+		$EggTimer.start(randf_range(egg_min_time, egg_max_time))
+	else:
+		speed_modifier *= (1 - poop_slowdown_factor)
+		$PoopTimer.start(randf_range(poop_min_time, poop_max_time))
+
+func _on_power_up(type: String) -> void:
+	if (type == "fertilizer"):
+		yield_modifier *= 2
+		$FertilizerTimer.start(randf_range(fertilizer_min_time, fertilizer_max_time))
+	elif (type == "multitool"):
+		multitool_enabled = true
+		$MultitoolTimer.start(randf_range(multitool_min_time, multitool_max_time))
+	else:
+		speed_modifier *= (1 + feather_speedup_factor)
+		$FeatherTimer.start(randf_range(feather_min_time, feather_max_time))
+
+
+func _on_fertilizer_timer_timeout() -> void:
+	yield_modifier = 1
+
+func _on_feather_timer_timeout() -> void:
+	speed_modifier = 1
+
+func _on_multitool_timer_timeout() -> void:
+	multitool_enabled = false
+
+func _on_egg_timer_timeout() -> void:
+	# hide_egg()
+	pass
+
+func _on_poop_timer_timeout() -> void:
+	speed_modifier = 1
+
+
+func _on_football_timer_timeout() -> void:
+	for tool in tools:
+		tools_enabled[tool] = true
