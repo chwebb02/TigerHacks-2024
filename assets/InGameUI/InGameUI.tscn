@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bmqdp6xhe3cmp"]
+
+[node name="InGameUi" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 645.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.875
+anchor_bottom = 0.184
+offset_left = 75.0
+offset_top = 20.0
+offset_right = 68.7499
+offset_bottom = -68.68
+size_flags_vertical = 1
+show_percentage = false
