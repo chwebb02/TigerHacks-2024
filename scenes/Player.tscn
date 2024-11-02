@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://e3kjyvk13fha"]
+[gd_scene load_steps=16 format=3 uid="uid://e3kjyvk13fha"]
 
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vdjrt"]
 [ext_resource type="Texture2D" uid="uid://dir372buda8hl" path="res://assets/truman/Truman Front.png" id="2_81k0t"]
@@ -12,6 +12,18 @@ region = Rect2(0, 0, 64, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8rms"]
 atlas = ExtResource("2_81k0t")
 region = Rect2(64, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_img7n"]
+atlas = ExtResource("2_81k0t")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r01r6"]
+atlas = ExtResource("3_bdt3n")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isdrf"]
+atlas = ExtResource("3_ykolr")
+region = Rect2(0, 0, 64, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbs4h"]
 atlas = ExtResource("3_bdt3n")
@@ -44,6 +56,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_img7n")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r01r6")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isdrf")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_kbs4h")
 }, {
 "duration": 1.0,
@@ -69,12 +105,12 @@ animations = [{
 size = Vector2(11.6667, 20)
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_vdjrt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o8t5b")
-animation = &"side"
+animation = &"idle_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.5, 7)
@@ -86,5 +122,21 @@ one_shot = true
 [node name="PoopTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="FertilizerTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FeatherTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MultitoolTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="EggTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="FootballTimer" to="." method="_on_football_timer_timeout"]
 [connection signal="timeout" from="PoopTimer" to="." method="_on_poop_timer_timeout"]
+[connection signal="timeout" from="FertilizerTimer" to="." method="_on_fertilizer_timer_timeout"]
+[connection signal="timeout" from="FeatherTimer" to="." method="_on_feather_timer_timeout"]
+[connection signal="timeout" from="MultitoolTimer" to="." method="_on_multitool_timer_timeout"]
+[connection signal="timeout" from="EggTimer" to="." method="_on_egg_timer_timeout"]
