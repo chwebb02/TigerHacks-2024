@@ -12,11 +12,8 @@ config_version=5
 
 config/name="Hay Fever"
 config/features=PackedStringArray("4.3", "Forward Plus")
-<<<<<<< HEAD
-config/icon="res://icon.svg"
-=======
 config/icon="res://assets/icon.svg"
->>>>>>> main
+<<<<<<<HEADconfig/icon="res://icon.svg"
 
 [input]
 
