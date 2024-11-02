@@ -23,7 +23,7 @@ anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 645.0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+[node name="TimerVisual" type="TextureProgressBar" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.781
@@ -44,7 +44,7 @@ texture_under = ExtResource("1_0b7w5")
 texture_over = ExtResource("2_alb47")
 texture_progress = ExtResource("3_e5blx")
 
-[node name="Label" type="Label" parent="Control"]
+[node name="TimerText" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.803
@@ -65,7 +65,7 @@ position = Vector2(432, 123)
 scale = Vector2(3.3375, 3.46667)
 texture = ExtResource("4_48pls")
 
-[node name="Label" type="Label" parent="Control/Player1Crops"]
+[node name="Player1Tomatoes" type="Label" parent="Control/Player1Crops"]
 offset_left = -90.1873
 offset_top = -27.4038
 offset_right = -39.1873
@@ -75,7 +75,7 @@ label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/Player1Crops"]
+[node name="Player1Potatoes" type="Label" parent="Control/Player1Crops"]
 offset_left = -7.79026
 offset_top = -27.4038
 offset_right = 43.2097
@@ -85,7 +85,7 @@ label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="Control/Player1Crops"]
+[node name="Player1Wheat" type="Label" parent="Control/Player1Crops"]
 offset_left = 69.2135
 offset_top = -27.9808
 offset_right = 120.213
@@ -100,7 +100,7 @@ position = Vector2(1465, 114)
 scale = Vector2(-3.338, 3.467)
 texture = ExtResource("4_48pls")
 
-[node name="Label4" type="Label" parent="Control/Player1Crops2"]
+[node name="Player2Wheat" type="Label" parent="Control/Player1Crops2"]
 offset_left = 91.6717
 offset_top = -25.959
 offset_right = 142.672
@@ -111,7 +111,7 @@ label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label5" type="Label" parent="Control/Player1Crops2"]
+[node name="Player2Potatoes" type="Label" parent="Control/Player1Crops2"]
 offset_left = 16.7765
 offset_top = -25.3822
 offset_right = 67.7765
@@ -122,7 +122,7 @@ label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label6" type="Label" parent="Control/Player1Crops2"]
+[node name="Player2Tomatoes" type="Label" parent="Control/Player1Crops2"]
 offset_left = -58.1186
 offset_top = -25.3822
 offset_right = -7.11863
