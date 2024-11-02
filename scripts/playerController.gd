@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 
-# Platyer 1 or two (can be extended later)
+
+
+# Player 1 or two (can be extended later)
 @export var player_number: int = 1
 
 # Constants for handling feel of player movement
@@ -16,7 +18,6 @@ var speed_modifier: float = 1
 var tool_cursor: int = 0
 var tools: Array = ["scythe", "hoe", "shovel"]
 var tools_enabled: Dictionary = {"scythe": true, "hoe": true, "shovel": true}
-
 
 # Define the player number
 var player: String = "player_"
@@ -60,7 +61,6 @@ func handle_movement():
 	
 	# Actually move around
 	move_and_slide()
-
 
 func switch_tool():
 	var i = 0
