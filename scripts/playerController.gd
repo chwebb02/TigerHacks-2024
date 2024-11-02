@@ -53,21 +53,19 @@ func handle_movement() -> void:
 	if Input.is_action_pressed(player + "right"):
 		velocity_change.x += acceleration * speed_modifier
 		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.play("side")
 		dir = "side"
 	if Input.is_action_pressed(player + "left"):
 		velocity_change.x -= acceleration * speed_modifier
 		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("side")
 		dir = "side"
 	if Input.is_action_pressed(player + "up"):
 		velocity_change.y -= acceleration * speed_modifier
-		$AnimatedSprite2D.play("up")
 		dir = "up"
 	if Input.is_action_pressed(player + "down"):
 		velocity_change.y += acceleration * speed_modifier
-		$AnimatedSprite2D.play("down")
 		dir = "down"
+	
+	$AnimatedSprite2D.play(dir)
 	
 	# Slow down in a direction if no accleration is applied in that direction
 	if (velocity_change.x == 0):
