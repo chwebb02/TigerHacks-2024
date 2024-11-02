@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://c1n54ikmlroar"]
 
-[ext_resource type="Script" path="res://crop.gd" id="1_7ulso"]
+[ext_resource type="Script" path="res://scripts/crop.gd" id="1_7ulso"]
 [ext_resource type="Texture2D" uid="uid://bmx0tlobcac0j" path="res://assets/Environment/free.png" id="2_dki54"]
 [ext_resource type="Texture2D" uid="uid://ck4p35kol00q6" path="res://assets/crops.png" id="3_p1i82"]
 
@@ -161,7 +161,5 @@ animation = &"grow_wheat"
 shape = SubResource("CircleShape2D_vv5o4")
 
 [node name="ReadyTimer" type="Timer" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="timeout" from="ReadyTimer" to="." method="_on_ready_timer_timeout"]

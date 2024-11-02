@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal throw_egg
+signal harvest
 
 # Player 1 or two (can be extended later)
 @export var player_number: int = 1
@@ -38,6 +39,7 @@ var multitool_enabled: bool = false
 var tool_cursor: int = 0
 var tools: Array = ["scythe", "hoe", "shovel"]
 var tools_enabled: Dictionary = {"scythe": true, "hoe": true, "shovel": true}
+var tools_to_crop: Dictionary = {"scythe": "wheat", "hoe": "potato", "shovel": "tomato"}
 
 # Define the player number
 var player: String = "player_"
@@ -87,6 +89,14 @@ func handle_movement() -> void:
 		$AnimatedSprite2D.play("idle_" + str(dir))
 		velocity = Vector2(0, 0)
 	
+	if dir == "down":
+		$HarvestArea.rotation_degrees = 0
+	elif dir == "side":
+		var mod = 1 if $AnimatedSprite2D.flip_h else -1
+		$HarvestArea.rotation_degrees = 90 * mod
+	elif dir == "up":
+		$HarvestArea.rotation_degrees = 270
+	
 	# Actually move around
 	move_and_slide()
 
@@ -107,8 +117,7 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed(player + "use_tool"):
 		if tools_enabled[tools[tool_cursor]]:
-			var sig = "use_" + tools[tool_cursor]
-			emit_signal(sig)
+			emit_signal("harvest", tools_to_crop[tools[tool_cursor]])
 
 func disable_tool():
 	tools_enabled[tools[tool_cursor]] = false
