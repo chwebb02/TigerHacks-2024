@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bmqdp6xhe3cmp"]
+[gd_scene load_steps=2 format=3 uid="uid://bmqdp6xhe3cmp"]
+
+[sub_resource type="Theme" id="Theme_otknp"]
 
 [node name="InGameUi" type="Node2D"]
 
@@ -10,12 +12,15 @@ offset_bottom = 645.0
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.875
-anchor_bottom = 0.184
-offset_left = 75.0
-offset_top = 20.0
-offset_right = 68.7499
-offset_bottom = -68.68
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -409.055
+offset_top = 35.0
+offset_right = 1195.95
+offset_bottom = 71.0
+grow_horizontal = 2
 size_flags_vertical = 1
+theme = SubResource("Theme_otknp")
+rounded = true
 show_percentage = false
