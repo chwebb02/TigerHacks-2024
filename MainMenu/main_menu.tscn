@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkuvkblt58ogn"]
+[gd_scene load_steps=13 format=3 uid="uid://bkuvkblt58ogn"]
 
 [ext_resource type="Texture2D" uid="uid://6mxvh2ewjefh" path="res://assets/UI/logo2.png" id="1_kjokk"]
 [ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_uxhyt"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://MainMenu/texture_rect.gd" id="7_6t6cq"]
 [ext_resource type="AudioStream" uid="uid://dyahs4a1ek8i1" path="res://assets/audio/woodknock2.mp3" id="9_yiscr"]
 [ext_resource type="AudioStream" uid="uid://0gqp8a2660of" path="res://assets/audio/mainmenu.mp3" id="11_0h2m5"]
+[ext_resource type="Script" path="res://MainMenu/button.gd" id="12_jkbth"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -117,5 +118,22 @@ expand_mode = 5
 unique_name_in_owner = true
 stream = ExtResource("11_0h2m5")
 attenuation = 0.00216713
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.406
+anchor_top = 0.944
+anchor_right = 0.557
+anchor_bottom = 0.978
+offset_left = -65.712
+offset_top = -47.712
+offset_right = -65.6641
+offset_bottom = -24.744
+scale = Vector2(1.8, 1.8)
+focus_mode = 0
+text = "CREDITS"
+flat = true
+script = ExtResource("12_jkbth")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
