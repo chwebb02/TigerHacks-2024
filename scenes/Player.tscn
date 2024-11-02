@@ -66,8 +66,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glqlk"]
+size = Vector2(11.6667, 20)
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_vdjrt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -75,7 +77,7 @@ sprite_frames = SubResource("SpriteFrames_o8t5b")
 animation = &"side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(6, 6)
+scale = Vector2(3.5, 7)
 shape = SubResource("RectangleShape2D_glqlk")
 
 [node name="FootballTimer" type="Timer" parent="."]
