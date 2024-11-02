@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://e3kjyvk13fha"]
 
-[ext_resource type="Texture2D" uid="uid://bloukeu8nf0hf" path="res://icon.svg" id="1_dasc0"]
+[ext_resource type="Texture2D" uid="uid://bloukeu8nf0hf" path="res://assets/icon.svg" id="1_dasc0"]
 [ext_resource type="Script" path="res://playerController.gd" id="1_g68tp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o8t5b"]
@@ -25,3 +25,12 @@ sprite_frames = SubResource("SpriteFrames_o8t5b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_glqlk")
+
+[node name="FootballTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PoopTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="FootballTimer" to="." method="_on_football_timer_timeout"]
+[connection signal="timeout" from="PoopTimer" to="." method="_on_poop_timer_timeout"]
