@@ -1,4 +1,4 @@
-# <ins>Hay Fever</ins>
+# **Hay Fever**
 Insert fun description of the game here...
 
 ## Player 1 Controls
@@ -17,7 +17,7 @@ Right Arrow - Move Right
 / - Switch Tool
 Right Shift - Use Tool
 
-### Credits
+## Credits
 Spudy-pixlz - Wooden Fence
 shubibubi - Cozy Farm Asset Pack
 moodmode - Stray Wolves 
