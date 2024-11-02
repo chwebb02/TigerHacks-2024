@@ -62,7 +62,7 @@ vertical_alignment = 1
 
 [node name="Player1Crops" type="Sprite2D" parent="Control"]
 position = Vector2(432, 123)
-scale = Vector2(3.3375, 3.46667)
+scale = Vector2(2.75, 2.75)
 texture = ExtResource("4_48pls")
 
 [node name="Player1Tomatoes" type="Label" parent="Control/Player1Crops"]
@@ -97,7 +97,7 @@ vertical_alignment = 1
 
 [node name="Player1Crops2" type="Sprite2D" parent="Control"]
 position = Vector2(1465, 114)
-scale = Vector2(-3.338, 3.467)
+scale = Vector2(-2.75, 2.75)
 texture = ExtResource("4_48pls")
 
 [node name="Player2Wheat" type="Label" parent="Control/Player1Crops2"]
