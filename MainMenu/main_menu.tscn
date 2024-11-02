@@ -1,0 +1,139 @@
+[gd_scene load_steps=13 format=3 uid="uid://bkuvkblt58ogn"]
+
+[ext_resource type="Texture2D" uid="uid://6mxvh2ewjefh" path="res://assets/UI/logo2.png" id="1_kjokk"]
+[ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_uxhyt"]
+[ext_resource type="Texture2D" uid="uid://i4afhh1rlsol" path="res://assets/UI/Drawing-13.sketchpad (3).png" id="2_cwydj"]
+[ext_resource type="Script" path="res://MainMenu/play.gd" id="2_igunf"]
+[ext_resource type="Texture2D" uid="uid://cr4duxdc8dtpy" path="res://assets/UI/truman2.png" id="2_ovkui"]
+[ext_resource type="Script" path="res://MainMenu/v_box_container.gd" id="3_6d14u"]
+[ext_resource type="Texture2D" uid="uid://c6tod5ocji54b" path="res://assets/UI/Drawing-13.sketchpad (2).png" id="3_8pwt1"]
+[ext_resource type="Script" path="res://MainMenu/quit.gd" id="6_d2jjf"]
+[ext_resource type="Script" path="res://MainMenu/texture_rect.gd" id="7_6t6cq"]
+[ext_resource type="AudioStream" uid="uid://dyahs4a1ek8i1" path="res://assets/audio/woodknock2.mp3" id="9_yiscr"]
+[ext_resource type="AudioStream" uid="uid://0gqp8a2660of" path="res://assets/audio/mainmenu.mp3" id="11_0h2m5"]
+[ext_resource type="Script" path="res://MainMenu/button.gd" id="12_jkbth"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uxhyt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+anchor_left = 0.037
+anchor_top = 0.051
+anchor_right = 0.455
+anchor_bottom = 0.518
+offset_left = 0.375999
+offset_top = -0.0480003
+offset_right = -0.160034
+offset_bottom = -0.179474
+texture = ExtResource("1_kjokk")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.043
+anchor_top = 0.617
+anchor_right = 0.391
+anchor_bottom = 0.926
+offset_left = 0.463997
+offset_top = 0.18396
+offset_right = -191.432
+offset_bottom = -0.0480347
+script = ExtResource("3_6d14u")
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+script = ExtResource("2_igunf")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Play"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.614
+anchor_bottom = 1.031
+offset_left = -2.0
+offset_top = 3.0
+offset_right = 92.674
+offset_bottom = 0.961998
+texture = ExtResource("2_cwydj")
+expand_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Play"]
+position = Vector2(-50, -400)
+stream = ExtResource("9_yiscr")
+attenuation = 0.000471649
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+script = ExtResource("6_d2jjf")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.496
+anchor_bottom = 0.98
+offset_left = 13.0
+offset_top = 8.00006
+offset_right = 83.336
+offset_bottom = -0.0399399
+texture = ExtResource("3_8pwt1")
+expand_mode = 1
+script = ExtResource("7_6t6cq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Quit"]
+position = Vector2(-50, -400)
+stream = ExtResource("9_yiscr")
+attenuation = 0.00257716
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.567
+anchor_top = 0.228
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.184021
+offset_top = 0.255997
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_ovkui")
+expand_mode = 5
+
+[node name="MainMenuSounds" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_0h2m5")
+attenuation = 0.00216713
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.406
+anchor_top = 0.944
+anchor_right = 0.557
+anchor_bottom = 0.978
+offset_left = -65.712
+offset_top = -47.712
+offset_right = -65.6641
+offset_bottom = -24.744
+scale = Vector2(1.8, 1.8)
+focus_mode = 0
+text = "CREDITS"
+flat = true
+script = ExtResource("12_jkbth")
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

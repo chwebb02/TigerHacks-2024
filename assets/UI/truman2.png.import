@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmx0tlobcac0j"
-path="res://.godot/imported/free.png-e59e06762b499870748dad5c47b76ce4.ctex"
+uid="uid://cr4duxdc8dtpy"
+path="res://.godot/imported/truman2.png-c26a3e1e14cc8a9d5b167c4b9a98a88d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/free.png"
-dest_files=["res://.godot/imported/free.png-e59e06762b499870748dad5c47b76ce4.ctex"]
+source_file="res://assets/UI/truman2.png"
+dest_files=["res://.godot/imported/truman2.png-c26a3e1e14cc8a9d5b167c4b9a98a88d.ctex"]
 
 [params]
 
