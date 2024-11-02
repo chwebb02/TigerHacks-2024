@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var acceleration: float = 64
 @export var max_speed: float = 1024
 @export var slowdown_factor: float = 0.05
+@export var stop_tolerance: float = 32
 
 # Modifier for max_speed
 var speed_modifier: float = 1
@@ -24,6 +25,7 @@ var player: String = "player_"
 func _ready():
 	player = player + str(player_number) + "_"
 
+var dir = "down"
 # Handle movement for a single frame
 func handle_movement():
 	var velocity_change = Vector2(0, 0)
@@ -33,16 +35,20 @@ func handle_movement():
 		velocity_change.x += acceleration
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("side")
+		dir = "side"
 	if Input.is_action_pressed(player + "left"):
 		velocity_change.x -= acceleration
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play("side")
+		dir = "side"
 	if Input.is_action_pressed(player + "up"):
 		velocity_change.y -= acceleration
 		$AnimatedSprite2D.play("up")
+		dir = "up"
 	if Input.is_action_pressed(player + "down"):
 		velocity_change.y += acceleration
 		$AnimatedSprite2D.play("down")
+		dir = "down"
 	
 	# Slow down in a direction if no accleration is applied in that direction
 	if (velocity_change.x == 0):
@@ -58,6 +64,9 @@ func handle_movement():
 	velocity.y = clamp(velocity.y, -1 * speed_modifier * max_speed, speed_modifier * max_speed)
 	
 	$AnimatedSprite2D.speed_scale = sqrt(velocity.x * velocity.x + velocity.y * velocity.y) / max_speed
+	if abs(velocity.x) <= stop_tolerance and abs(velocity).y <= stop_tolerance:
+		$AnimatedSprite2D.play("idle_" + str(dir))
+		velocity = Vector2(0, 0)
 	
 	# Actually move around
 	move_and_slide()
