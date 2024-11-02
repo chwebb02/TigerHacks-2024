@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkuvkblt58ogn"]
+
+[ext_resource type="Texture2D" uid="uid://6mxvh2ewjefh" path="res://assets/UI/logo2.png" id="1_kjokk"]
+[ext_resource type="Texture2D" uid="uid://i4afhh1rlsol" path="res://assets/UI/Drawing-13.sketchpad (3).png" id="2_cwydj"]
+[ext_resource type="Script" path="res://play.gd" id="2_igunf"]
+[ext_resource type="Texture2D" uid="uid://cr4duxdc8dtpy" path="res://assets/UI/truman2.png" id="2_ovkui"]
+[ext_resource type="Texture2D" uid="uid://c6tod5ocji54b" path="res://assets/UI/Drawing-13.sketchpad (2).png" id="3_8pwt1"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+anchor_left = 0.037
+anchor_top = 0.051
+anchor_right = 0.455
+anchor_bottom = 0.518
+offset_left = 0.375999
+offset_top = -0.0480003
+offset_right = -0.160034
+offset_bottom = -0.179474
+texture = ExtResource("1_kjokk")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.043
+anchor_top = 0.617
+anchor_right = 0.391
+anchor_bottom = 0.926
+offset_left = 0.463997
+offset_top = 0.18396
+offset_right = -0.432037
+offset_bottom = -0.0480347
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+script = ExtResource("2_igunf")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Play"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.614
+anchor_bottom = 1.031
+offset_left = -2.0
+offset_top = 3.00006
+offset_right = -1.98601
+offset_bottom = 0.962059
+texture = ExtResource("2_cwydj")
+expand_mode = 1
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.496
+anchor_bottom = 0.98
+offset_left = 13.0
+offset_top = 8.00006
+offset_right = 5.09599
+offset_bottom = -0.0399399
+texture = ExtResource("3_8pwt1")
+expand_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.567
+anchor_top = 0.228
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.184021
+offset_top = 0.255997
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_ovkui")
+expand_mode = 5
