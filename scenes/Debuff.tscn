@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjnu61obrn2ae"]
+
+[ext_resource type="Script" path="res://scripts/debuff.gd" id="1_xp6pu"]
+[ext_resource type="Texture2D" uid="uid://b3fjw2yxr2or2" path="res://assets/Debuffs/egg.png" id="2_x5kx0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qf3k"]
+
+[node name="Debuff" type="Area2D"]
+script = ExtResource("1_xp6pu")
+debuff_type = "manure"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x5kx0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5qf3k")
