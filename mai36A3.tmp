@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkuvkblt58ogn"]
+[gd_scene load_steps=12 format=3 uid="uid://bkuvkblt58ogn"]
 
 [ext_resource type="Texture2D" uid="uid://6mxvh2ewjefh" path="res://assets/UI/logo2.png" id="1_kjokk"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_uxhyt"]
 [ext_resource type="Texture2D" uid="uid://i4afhh1rlsol" path="res://assets/UI/Drawing-13.sketchpad (3).png" id="2_cwydj"]
 [ext_resource type="Script" path="res://play.gd" id="2_igunf"]
 [ext_resource type="Texture2D" uid="uid://cr4duxdc8dtpy" path="res://assets/UI/truman2.png" id="2_ovkui"]
+[ext_resource type="Script" path="res://v_box_container.gd" id="3_6d14u"]
 [ext_resource type="Texture2D" uid="uid://c6tod5ocji54b" path="res://assets/UI/Drawing-13.sketchpad (2).png" id="3_8pwt1"]
+[ext_resource type="Script" path="res://quit.gd" id="6_d2jjf"]
+[ext_resource type="Script" path="res://texture_rect.gd" id="7_6t6cq"]
+[ext_resource type="AudioStream" uid="uid://dyahs4a1ek8i1" path="res://assets/audio/woodknock2.mp3" id="9_yiscr"]
+[ext_resource type="AudioStream" uid="uid://0gqp8a2660of" path="res://assets/audio/mainmenu.mp3" id="11_0h2m5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uxhyt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -38,6 +45,7 @@ offset_left = 0.463997
 offset_top = 0.18396
 offset_right = -0.432037
 offset_bottom = -0.0480347
+script = ExtResource("3_6d14u")
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -46,6 +54,7 @@ flat = true
 script = ExtResource("2_igunf")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Play"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.614
@@ -57,10 +66,16 @@ offset_bottom = 0.962059
 texture = ExtResource("2_cwydj")
 expand_mode = 1
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Play"]
+position = Vector2(-50, -400)
+stream = ExtResource("9_yiscr")
+attenuation = 0.000471649
+
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 flat = true
+script = ExtResource("6_d2jjf")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Quit"]
 layout_mode = 1
@@ -73,6 +88,12 @@ offset_right = 5.09599
 offset_bottom = -0.0399399
 texture = ExtResource("3_8pwt1")
 expand_mode = 1
+script = ExtResource("7_6t6cq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Quit"]
+position = Vector2(-50, -400)
+stream = ExtResource("9_yiscr")
+attenuation = 0.00257716
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -91,3 +112,10 @@ alignment = 2
 layout_mode = 2
 texture = ExtResource("2_ovkui")
 expand_mode = 5
+
+[node name="MainMenuSounds" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_0h2m5")
+attenuation = 0.00216713
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
