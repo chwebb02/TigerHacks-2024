@@ -9,7 +9,7 @@ func _ready():
 	$Sprite2D.texture = sprite
 
 func _on_body_entered(body: Node2D) -> void:
-	var player = body.player_number2
+	var player = body.player_number
 	emit_signal("power_up", player, power_up_type)
 	
 	queue_free()
