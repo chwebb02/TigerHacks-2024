@@ -2,12 +2,12 @@
 Insert fun description of the game here...
 
 ## Player 1 Controls
-W - Move Forward
-S - Move Backward
-A - Move Left
-D - Move Right
-Q - Switch Tool
-E - Use Tool
+- W - Move Forward
+- S - Move Backward
+- A - Move Left
+- D - Move Right
+- Q - Switch Tool
+- E - Use Tool
 
 ## Player 2 Controls
 Up Arrow - Move Forward
