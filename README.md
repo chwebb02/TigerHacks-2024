@@ -1,4 +1,4 @@
-# Hay Fever
+# <ins>Hay Fever</ins>
 Insert fun description of the game here...
 
 ## Player 1 Controls
