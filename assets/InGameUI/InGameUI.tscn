@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmqdp6xhe3cmp"]
+[gd_scene load_steps=12 format=3 uid="uid://bmqdp6xhe3cmp"]
 
 [ext_resource type="Texture2D" uid="uid://lfr8hv00o7l3" path="res://assets/UI/Drawing-14.sketchpad (1).png" id="1_0b7w5"]
 [ext_resource type="Texture2D" uid="uid://3i4ghycf5vix" path="res://assets/UI/Drawing-14.sketchpad.png" id="2_alb47"]
 [ext_resource type="Texture2D" uid="uid://cnbx2jtgsdqyi" path="res://assets/UI/Drawing-14.sketchpad (2).png" id="3_e5blx"]
 [ext_resource type="Texture2D" uid="uid://b3hrpbmg8ao6c" path="res://assets/UI/pixil-frame-0 (9).png" id="4_48pls"]
+[ext_resource type="Texture2D" uid="uid://dvs5pyd8w6jq1" path="res://assets/InGameUI/Drawing-16.sketchpad.png" id="5_5m7ps"]
+[ext_resource type="Texture2D" uid="uid://d3uj5m7suhyem" path="res://assets/InGameUI/Drawing-16.sketchpad (1).png" id="6_8mdqm"]
+[ext_resource type="Texture2D" uid="uid://bm8h5uwmisf42" path="res://assets/InGameUI/Screenshot_2024-11-02_173126-removebg-preview.png" id="6_eigl1"]
+[ext_resource type="Texture2D" uid="uid://fjpj0df1tgaq" path="res://assets/InGameUI/Screenshot_2024-11-02_174509-removebg-preview.png" id="7_8kby1"]
+[ext_resource type="Texture2D" uid="uid://clwefkxn74n5h" path="res://assets/InGameUI/Screenshot_2024-11-02_175003-removebg-preview.png" id="8_acyv7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_027n2"]
 font_size = 50
@@ -39,7 +44,7 @@ grow_vertical = 2
 scale = Vector2(0.15, 0.15)
 value = 100.0
 fill_mode = 4
-radial_fill_degrees = 81.2
+radial_fill_degrees = 0.0
 texture_under = ExtResource("1_0b7w5")
 texture_over = ExtResource("2_alb47")
 texture_progress = ExtResource("3_e5blx")
@@ -61,7 +66,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player1Crops" type="Sprite2D" parent="Control"]
-position = Vector2(432, 123)
+texture_filter = 1
+position = Vector2(432, 114)
 scale = Vector2(2.75, 2.75)
 texture = ExtResource("4_48pls")
 
@@ -96,6 +102,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player1Crops2" type="Sprite2D" parent="Control"]
+texture_filter = 1
 position = Vector2(1465, 114)
 scale = Vector2(-2.75, 2.75)
 texture = ExtResource("4_48pls")
@@ -132,3 +139,57 @@ text = "0"
 label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 970.0
+offset_right = 146.0
+offset_bottom = 1010.0
+
+[node name="Player1Tool" type="Sprite2D" parent="Control2"]
+position = Vector2(-5, 11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_5m7ps")
+
+[node name="Player1Shovel" type="Sprite2D" parent="Control2/Player1Tool"]
+position = Vector2(24, -54)
+rotation = 0.610865
+scale = Vector2(0.948454, 0.875583)
+texture = ExtResource("6_eigl1")
+
+[node name="Player1Hoe" type="Sprite2D" parent="Control2/Player1Tool"]
+position = Vector2(52, -86)
+rotation = -2.53073
+scale = Vector2(0.917201, -0.888279)
+texture = ExtResource("7_8kby1")
+
+[node name="Player1Scythe" type="Sprite2D" parent="Control2/Player1Tool"]
+position = Vector2(64, -78)
+rotation = 0.610865
+scale = Vector2(0.995381, 1.04167)
+texture = ExtResource("8_acyv7")
+
+[node name="Player2Tool" type="Sprite2D" parent="Control2"]
+position = Vector2(1714, 8)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("6_8mdqm")
+
+[node name="Player2Shovel" type="Sprite2D" parent="Control2/Player2Tool"]
+position = Vector2(24, -54)
+rotation = 0.610865
+scale = Vector2(1, 0.924)
+texture = ExtResource("6_eigl1")
+
+[node name="Player2Hoe" type="Sprite2D" parent="Control2/Player2Tool"]
+position = Vector2(52, -86)
+rotation = -2.53073
+scale = Vector2(0.917201, -0.888279)
+texture = ExtResource("7_8kby1")
+
+[node name="Player2Scythe" type="Sprite2D" parent="Control2/Player2Tool"]
+position = Vector2(64, -78)
+rotation = 0.610865
+scale = Vector2(0.995381, 1.04167)
+texture = ExtResource("8_acyv7")
