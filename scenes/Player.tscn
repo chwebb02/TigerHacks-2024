@@ -1,26 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://e3kjyvk13fha"]
+[gd_scene load_steps=13 format=3 uid="uid://e3kjyvk13fha"]
 
-[ext_resource type="Texture2D" uid="uid://bloukeu8nf0hf" path="res://assets/icon.svg" id="1_dasc0"]
-[ext_resource type="Script" path="res://playerController.gd" id="1_g68tp"]
+[ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vdjrt"]
+[ext_resource type="Texture2D" uid="uid://dir372buda8hl" path="res://assets/truman/Truman Front.png" id="2_81k0t"]
+[ext_resource type="Texture2D" uid="uid://buk2grgdms40t" path="res://assets/truman/Side Truman.png" id="3_bdt3n"]
+[ext_resource type="Texture2D" uid="uid://dnp411u8psoas" path="res://assets/truman/Truman Side.png" id="3_ykolr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gupl3"]
+atlas = ExtResource("2_81k0t")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8rms"]
+atlas = ExtResource("2_81k0t")
+region = Rect2(64, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbs4h"]
+atlas = ExtResource("3_bdt3n")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owo10"]
+atlas = ExtResource("3_bdt3n")
+region = Rect2(64, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuxyj"]
+atlas = ExtResource("3_ykolr")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev5n8"]
+atlas = ExtResource("3_ykolr")
+region = Rect2(64, 0, 64, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o8t5b"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_dasc0")
+"texture": SubResource("AtlasTexture_gupl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8rms")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"down",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbs4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owo10")
+}],
+"loop": true,
+"name": &"side",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuxyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev5n8")
+}],
+"loop": true,
+"name": &"up",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glqlk"]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_g68tp")
+script = ExtResource("1_vdjrt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o8t5b")
+animation = &"side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6, 6)
