@@ -109,7 +109,12 @@ size = Vector2(20, 120)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.4, 0.4)
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_vdjrt")
+max_speed = 512.0
+slowdown_factor = 0.13
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o8t5b")
