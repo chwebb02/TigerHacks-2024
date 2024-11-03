@@ -26,8 +26,6 @@ signal switch_to_tool
 # Debuff constants
 @export var football_min_time: float = 1.2
 @export var football_max_time: float = 5.8
-@export var egg_min_time: float = 3.0
-@export var egg_max_time: float = 4.3
 @export var poop_min_time: float = 2.2
 @export var poop_max_time: float = 4.9
 @export var poop_slowdown_factor: float = 0.4
@@ -117,10 +115,11 @@ func switch_tool() -> void:
 		
 		i += 1
 	
-	emit_signal("switch_to_tool", tools[tool_cursor])
-	
 	if multitool_enabled:
+		emit_signal("switch_to_tool", "multitool")
 		return
+	
+	emit_signal("switch_to_tool", tools[tool_cursor])
 	
 	modify_harvest_area()
 
@@ -142,7 +141,7 @@ func disable_tool():
 	switch_tool()
 
 func display_egg():
-	emit_signal("throw_egg", player_number)
+	emit_signal("throw_egg")
 
 func _on_debuff(type: String) -> void:
 	if (type == "football"):
@@ -150,7 +149,6 @@ func _on_debuff(type: String) -> void:
 		$FootballTimer.start(randf_range(football_min_time, football_max_time))
 	elif (type == "egg"):
 		display_egg()
-		$EggTimer.start(randf_range(egg_min_time, egg_max_time))
 	else:
 		speed_modifier *= (1 - poop_slowdown_factor)
 		$PoopTimer.start(randf_range(poop_min_time, poop_max_time))
@@ -177,10 +175,6 @@ func _on_feather_timer_timeout() -> void:
 func _on_multitool_timer_timeout() -> void:
 	modify_harvest_area()
 	multitool_enabled = false
-
-func _on_egg_timer_timeout() -> void:
-	# hide_egg()
-	pass
 
 func _on_poop_timer_timeout() -> void:
 	speed_modifier = 1
