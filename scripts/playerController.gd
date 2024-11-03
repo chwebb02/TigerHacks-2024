@@ -4,6 +4,7 @@ signal throw_egg
 signal harvest
 signal add_points
 signal switch_to_tool
+signal collect_crop
 
 # Player 1 or two (can be extended later)
 @export var player_number: int = 1
@@ -184,6 +185,6 @@ func _on_football_timer_timeout() -> void:
 	for tool in tools:
 		tools_enabled[tool] = true
 
-func _on_harvest_crop(value: int) -> void:
-	value *= yield_modifier
-	emit_signal("add_points", value)
+func _on_harvest_crop(crop_type: String, points: int) -> void:
+	var value = yield_modifier * points
+	emit_signal("collect_crop", crop_type, yield_modifier, points)
