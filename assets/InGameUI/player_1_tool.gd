@@ -1,16 +1,13 @@
 extends Sprite2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	pass # Replace with function body.
-
+@onready var _animations = get_node("AnimationPlayer")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_node("tool1").play("Hoe")
 	pass
-
-
 	
+func changeTool(tool: String):
+	if _animations:
+		_animations.play(tool + "2")
+	else:
+		print("AnimationPlayer node is null")
