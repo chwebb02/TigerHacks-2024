@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal throw_egg
 signal harvest
 signal add_points
+signal switch_to_tool
 
 # Player 1 or two (can be extended later)
 @export var player_number: int = 1
@@ -115,6 +116,8 @@ func switch_tool() -> void:
 			break
 		
 		i += 1
+	
+	emit_signal("switch_to_tool", tools[tool_cursor])
 	
 	if multitool_enabled:
 		return
