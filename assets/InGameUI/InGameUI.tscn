@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmqdp6xhe3cmp"]
+[gd_scene load_steps=29 format=3 uid="uid://bmqdp6xhe3cmp"]
 
 [ext_resource type="Texture2D" uid="uid://lfr8hv00o7l3" path="res://assets/UI/Drawing-14.sketchpad (1).png" id="1_0b7w5"]
 [ext_resource type="Texture2D" uid="uid://3i4ghycf5vix" path="res://assets/UI/Drawing-14.sketchpad.png" id="2_alb47"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://assets/InGameUI/player_1_tool.gd" id="6_rw0vq"]
 [ext_resource type="Texture2D" uid="uid://fjpj0df1tgaq" path="res://assets/InGameUI/Screenshot_2024-11-02_174509-removebg-preview.png" id="7_8kby1"]
 [ext_resource type="Texture2D" uid="uid://clwefkxn74n5h" path="res://assets/InGameUI/Screenshot_2024-11-02_175003-removebg-preview.png" id="8_acyv7"]
+[ext_resource type="Texture2D" uid="uid://cst7hvc8bil73" path="res://assets/Debuffs/eggsplatteranimation.png" id="11_lwqo7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_027n2"]
 font_size = 50
@@ -145,6 +146,56 @@ _data = {
 "Shovel": SubResource("Animation_7dmbk"),
 "Shovel2": SubResource("Animation_jjh1y")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxhru"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(0, 0, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lrbi"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(1316, 0, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40gui"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(2632, 0, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pddw5"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(0, 1316, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtjlk"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(1316, 1316, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8ugg"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(2632, 1316, 1316, 1316)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tujn0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxhru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lrbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40gui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pddw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtjlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8ugg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="InGameUi" type="Node2D"]
 
@@ -311,6 +362,11 @@ root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_x4mqk")
 }
+
+[node name="EggSplat" type="AnimatedSprite2D" parent="Control2/Player1Tool"]
+position = Vector2(2578, -814)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_tujn0")
 
 [node name="Player2Tool" type="Sprite2D" parent="Control2"]
 position = Vector2(1713.32, 11)
