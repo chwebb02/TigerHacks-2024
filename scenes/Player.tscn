@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://e3kjyvk13fha"]
+[gd_scene load_steps=18 format=3 uid="uid://e3kjyvk13fha"]
 
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vdjrt"]
 [ext_resource type="Texture2D" uid="uid://dir372buda8hl" path="res://assets/truman/Truman Front.png" id="2_81k0t"]
 [ext_resource type="Texture2D" uid="uid://buk2grgdms40t" path="res://assets/truman/Side Truman.png" id="3_bdt3n"]
 [ext_resource type="Texture2D" uid="uid://dnp411u8psoas" path="res://assets/truman/Truman Side.png" id="3_ykolr"]
+[ext_resource type="Texture2D" uid="uid://dxbsbs4g70feq" path="res://assets/icon.svg" id="5_iual0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gupl3"]
 atlas = ExtResource("2_81k0t")
@@ -105,12 +106,12 @@ animations = [{
 size = Vector2(11.6667, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6eoh"]
-size = Vector2(20, 120)
+size = Vector2(15, 120)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.4, 0.4)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_vdjrt")
 max_speed = 512.0
@@ -143,11 +144,18 @@ one_shot = true
 one_shot = true
 
 [node name="HarvestArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HarvestArea"]
-position = Vector2(9.09495e-13, 100)
+position = Vector2(-7.15256e-06, 100)
 scale = Vector2(16, 1)
 shape = SubResource("RectangleShape2D_n6eoh")
+
+[node name="Sprite2D" type="Sprite2D" parent="HarvestArea/CollisionShape2D"]
+position = Vector2(5.96046e-07, 2)
+scale = Vector2(0.117188, 0.96875)
+texture = ExtResource("5_iual0")
 
 [connection signal="timeout" from="FootballTimer" to="." method="_on_football_timer_timeout"]
 [connection signal="timeout" from="PoopTimer" to="." method="_on_poop_timer_timeout"]

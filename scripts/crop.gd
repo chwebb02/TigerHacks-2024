@@ -13,7 +13,10 @@ enum TYPE {
 @export var player: CharacterBody2D
 
 # Lookup dict for crop type, helps simplify work in editor
-var lookup = {TYPE.WHEAT: "wheat", TYPE.POTATO: "potato", TYPE.TOMATO: "tomato"}
+var lookup: Dictionary = {TYPE.WHEAT: "wheat", TYPE.POTATO: "potato", TYPE.TOMATO: "tomato"}
+
+# Crop value lookup
+var crop_values: Dictionary = {TYPE.WHEAT: 1, TYPE.POTATO: 5, TYPE.TOMATO: 15}
 
 # Whether or not the crop can be harvested by a player
 var harvestable: bool = false
@@ -23,30 +26,21 @@ var field_number = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	field_number = player.player_number
-	player.harvest.connect(_on_harvest)
-	
 	$AnimatedSprite2D.play("grow_" + str(lookup[crop_type]), 1 / grow_speed)
 	$ReadyTimer.start(1 / grow_speed)
+	
+	field_number = player.player_number
+	player.harvest.connect(_on_harvest)
+	harvest_crop.connect(player._on_harvest_crop)
 
 func _on_ready_timer_timeout() -> void:
 	harvestable = true
 
-func _on_harvest(crop: String) -> void:
-	print("in _on_harvest!")
-	
+func _on_harvest(crop: String, player) -> void:
 	var areas = get_overlapping_areas()
-	
-	print("Overlapping areas: " + str(areas))
 	
 	if harvestable and areas.size() > 0:
 		for area in areas:
-			print("Player area: " + str(area.get_parent().player_number))
-			print(crop)
-			print(lookup[crop_type])
-			
-			var play = area.get_parent()
-			if crop == lookup[crop_type] and play.player_number == field_number:
-				print("Harvested")
-				emit_signal("harvest_crop", field_number, crop)
+			if (crop == lookup[crop_type] or crop == "all") and player.player_number == field_number:
+				emit_signal("harvest_crop", crop_values[crop_type])
 				queue_free()

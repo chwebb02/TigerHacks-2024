@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://c07twggditpvf"]
+[gd_scene load_steps=8 format=3 uid="uid://c07twggditpvf"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_0dd0i"]
 [ext_resource type="PackedScene" uid="uid://e3kjyvk13fha" path="res://scenes/Player.tscn" id="1_aj61n"]
-[ext_resource type="PackedScene" uid="uid://ftupeoq6dc04" path="res://scenes/Power_Up.tscn" id="2_8j2hs"]
-[ext_resource type="PackedScene" uid="uid://betb7lo82fc32" path="res://scenes/Debuff.tscn" id="3_6gua8"]
+[ext_resource type="Script" path="res://scripts/debuff_spawner.gd" id="2_14sld"]
+[ext_resource type="Script" path="res://scripts/power_up_spawner.gd" id="3_ijjja"]
 [ext_resource type="PackedScene" uid="uid://d1fglwj1m1g23" path="res://scenes/Tile_Map.tscn" id="3_yjyw0"]
-[ext_resource type="PackedScene" uid="uid://c1n54ikmlroar" path="res://scenes/Crop.tscn" id="5_it4s2"]
+[ext_resource type="Script" path="res://scripts/crop_spawner.gd" id="4_b0mn1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwydo"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_0dd0i")
+min_item_x = -712
+max_item_x = 712
+min_item_y = -384
+max_item_y = 384
+min_center_x = -16
+max_center_x = 16
 
 [node name="World" type="Node2D" parent="."]
 
@@ -59,65 +67,21 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/RightWall"]
 shape = SubResource("RectangleShape2D_uwydo")
 
-[node name="Power-Up" parent="." node_paths=PackedStringArray("Player1", "Player2") instance=ExtResource("2_8j2hs")]
-position = Vector2(-100, 0)
-Player1 = NodePath("../Player1")
-Player2 = NodePath("../Player2")
+[node name="Debuffs" type="Node2D" parent="."]
+script = ExtResource("2_14sld")
 
-[node name="Crop" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_it4s2")]
-position = Vector2(-100, 2)
-crop_type = 2
-player = NodePath("../Player1")
+[node name="Power-Ups" type="Node2D" parent="."]
+script = ExtResource("3_ijjja")
 
-[node name="Debuff" parent="." node_paths=PackedStringArray("Player1", "Player2") instance=ExtResource("3_6gua8")]
-position = Vector2(100, 0)
-debuff_type = 2
-Player1 = NodePath("../Player1")
-Player2 = NodePath("../Player2")
+[node name="Crops" type="Node2D" parent="."]
+script = ExtResource("4_b0mn1")
 
 [node name="Player1" parent="." instance=ExtResource("1_aj61n")]
 position = Vector2(-400, 0)
-player_number = 1
-acceleration = 64.0
-max_speed = 1024.0
-slowdown_factor = 0.05
-stop_tolerance = 32.0
-fertilizer_min_time = 1.2
-fertilizer_max_time = 3.7
-feather_min_time = 1.5
-feather_max_time = 2.9
-multitool_min_time = 1.0
-multitool_max_time = 1.8
-feather_speedup_factor = 0.5
-football_min_time = 1.2
-football_max_time = 5.8
-egg_min_time = 3.0
-egg_max_time = 4.3
-poop_min_time = 2.2
-poop_max_time = 4.9
-poop_slowdown_factor = 0.4
 
 [node name="Player2" parent="." instance=ExtResource("1_aj61n")]
 position = Vector2(400, 0)
 player_number = 2
-acceleration = 64.0
-max_speed = 1024.0
-slowdown_factor = 0.05
-stop_tolerance = 32.0
-fertilizer_min_time = 1.2
-fertilizer_max_time = 3.7
-feather_min_time = 1.5
-feather_max_time = 2.9
-multitool_min_time = 1.0
-multitool_max_time = 1.8
-feather_speedup_factor = 0.5
-football_min_time = 1.2
-football_max_time = 5.8
-egg_min_time = 3.0
-egg_max_time = 4.3
-poop_min_time = 2.2
-poop_max_time = 4.9
-poop_slowdown_factor = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.333, 1.333)
