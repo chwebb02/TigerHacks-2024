@@ -146,6 +146,5 @@ terrain_set_0/terrain_0/color = Color(0.738704, 0.643401, 0.234547, 1)
 sources/0 = SubResource("TileSetAtlasSource_4jefe")
 
 [node name="FenceTileMapLayer" type="TileMapLayer"]
-position = Vector2(216, 8)
 scale = Vector2(1.333, 1.333)
 tile_set = SubResource("TileSet_nwyg7")
