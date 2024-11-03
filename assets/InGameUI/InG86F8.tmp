@@ -1,16 +1,17 @@
-
-[gd_scene load_steps=31 format=3 uid="uid://bmqdp6xhe3cmp"]
-
+[gd_scene load_steps=30 format=3 uid="uid://bmqdp6xhe3cmp"]
 
 [ext_resource type="Texture2D" uid="uid://lfr8hv00o7l3" path="res://assets/UI/Drawing-14.sketchpad (1).png" id="1_0b7w5"]
-[ext_resource type="Script" path="res://assets/InGameUI/in_game_ui.gd" id="1_03iyy"]
 [ext_resource type="Texture2D" uid="uid://3i4ghycf5vix" path="res://assets/UI/Drawing-14.sketchpad.png" id="2_alb47"]
 [ext_resource type="Texture2D" uid="uid://cnbx2jtgsdqyi" path="res://assets/UI/Drawing-14.sketchpad (2).png" id="3_e5blx"]
-[ext_resource type="Texture2D" uid="uid://dceq187g43dfx" path="res://assets/InGameUI/board.png" id="4_jyijt"]
-[ext_resource type="Texture2D" uid="uid://b2ob0lbw6sbpd" path="res://assets/InGameUI/potato.png" id="5_eym33"]
-[ext_resource type="Texture2D" path="res://assets/InGameUI/finalwheat.png" id="5_f3jq0"]
-[ext_resource type="Texture2D" uid="uid://c5bgpv4iw0esg" path="res://assets/InGameUI/tomato.png" id="7_72h0m"]
-
+[ext_resource type="Texture2D" uid="uid://b3hrpbmg8ao6c" path="res://assets/UI/pixil-frame-0 (9).png" id="4_48pls"]
+[ext_resource type="Texture2D" uid="uid://dvs5pyd8w6jq1" path="res://assets/InGameUI/Drawing-16.sketchpad.png" id="5_5m7ps"]
+[ext_resource type="Texture2D" uid="uid://d3uj5m7suhyem" path="res://assets/InGameUI/Drawing-16.sketchpad (1).png" id="6_8mdqm"]
+[ext_resource type="Texture2D" uid="uid://bm8h5uwmisf42" path="res://assets/InGameUI/Screenshot_2024-11-02_173126-removebg-preview.png" id="6_eigl1"]
+[ext_resource type="Script" path="res://assets/InGameUI/player_1_tool.gd" id="6_rw0vq"]
+[ext_resource type="Texture2D" uid="uid://fjpj0df1tgaq" path="res://assets/InGameUI/Screenshot_2024-11-02_174509-removebg-preview.png" id="7_8kby1"]
+[ext_resource type="Texture2D" uid="uid://clwefkxn74n5h" path="res://assets/InGameUI/Screenshot_2024-11-02_175003-removebg-preview.png" id="8_acyv7"]
+[ext_resource type="Texture2D" uid="uid://cst7hvc8bil73" path="res://assets/Debuffs/eggsplatteranimation.png" id="11_lwqo7"]
+[ext_resource type="Script" path="res://assets/InGameUI/player_2_tool.gd" id="12_alu3u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_027n2"]
 font_size = 50
@@ -18,8 +19,8 @@ outline_size = 15
 outline_color = Color(0.540365, 0.436242, 0.111983, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k2mqf"]
-font_size = 12
-outline_size = 6
+font_size = 20
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_rf6pj"]
@@ -198,7 +199,6 @@ animations = [{
 }]
 
 [node name="InGameUi" type="Node2D"]
-script = ExtResource("1_03iyy")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -243,107 +243,76 @@ label_settings = SubResource("LabelSettings_027n2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Board1" type="Sprite2D" parent="Control"]
-position = Vector2(446, 175)
-scale = Vector2(6.875, 4.95)
-texture = ExtResource("4_jyijt")
-
-[node name="Wheat1" type="Sprite2D" parent="Control/Board1"]
-position = Vector2(30.9818, -10.5051)
-scale = Vector2(0.0509091, 0.0707071)
-texture = ExtResource("5_f3jq0")
-
-[node name="Potato1" type="Sprite2D" parent="Control/Board1"]
+[node name="Player1Crops" type="Sprite2D" parent="Control"]
 texture_filter = 1
-position = Vector2(1.45462, -10.5051)
-scale = Vector2(0.0436364, 0.0606061)
-texture = ExtResource("5_eym33")
+position = Vector2(432, 114)
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("4_48pls")
 
-[node name="Tomato1" type="Sprite2D" parent="Control/Board1"]
-texture_filter = 1
-position = Vector2(-29.5274, -10.5051)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("7_72h0m")
-
-[node name="Player1Tomatoes" type="Label" parent="Control/Board1"]
-texture_filter = 1
-offset_left = -29.236
-offset_top = -16.0
-offset_right = -10.236
-offset_bottom = 12.0
+[node name="Player1Tomatoes" type="Label" parent="Control/Player1Crops"]
+offset_left = -90.1873
+offset_top = -27.4038
+offset_right = -39.1873
+offset_bottom = 35.5962
 text = "0"
 label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player1Potatoes" type="Label" parent="Control/Board1"]
-offset_left = 2.036
-offset_top = -16.0
-offset_right = 19.036
-offset_bottom = 12.0
+[node name="Player1Potatoes" type="Label" parent="Control/Player1Crops"]
+offset_left = -7.79026
+offset_top = -27.4038
+offset_right = 43.2097
+offset_bottom = 35.5962
 text = "0"
 label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player1Wheat" type="Label" parent="Control/Board1"]
-offset_left = 32.4364
-offset_top = -12.1212
-offset_right = 42.4364
-offset_bottom = 4.87878
+[node name="Player1Wheat" type="Label" parent="Control/Player1Crops"]
+offset_left = 69.2135
+offset_top = -27.9808
+offset_right = 120.213
+offset_bottom = 35.0192
 text = "0"
 label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Board2" type="Sprite2D" parent="."]
-position = Vector2(1475, 175)
-scale = Vector2(6.875, 4.95)
-texture = ExtResource("4_jyijt")
-
-[node name="Wheat2" type="Sprite2D" parent="Board2"]
-position = Vector2(30.9818, -10.5051)
-scale = Vector2(0.0509091, 0.0707071)
-texture = ExtResource("5_f3jq0")
-
-[node name="Potato2" type="Sprite2D" parent="Board2"]
+[node name="Player1Crops2" type="Sprite2D" parent="Control"]
 texture_filter = 1
-position = Vector2(1.45462, -10.5051)
-scale = Vector2(0.0436364, 0.0606061)
-texture = ExtResource("5_eym33")
+position = Vector2(1465, 114)
+scale = Vector2(-2.75, 2.75)
+texture = ExtResource("4_48pls")
 
-[node name="Tomato2" type="Sprite2D" parent="Board2"]
-texture_filter = 1
-position = Vector2(-29.5274, -10.5051)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("7_72h0m")
-
-[node name="Player2Tomatoes" type="Label" parent="Board2"]
-texture_filter = 1
-offset_left = -29.236
-offset_top = -16.0
-offset_right = -10.236
-offset_bottom = 12.0
+[node name="Player2Wheat" type="Label" parent="Control/Player1Crops2"]
+offset_left = 91.6717
+offset_top = -25.959
+offset_right = 142.672
+offset_bottom = 37.041
+scale = Vector2(-1, 1)
 text = "0"
 label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player2Potatoes" type="Label" parent="Board2"]
-offset_left = 2.036
-offset_top = -16.0
-offset_right = 19.036
-offset_bottom = 12.0
+[node name="Player2Potatoes" type="Label" parent="Control/Player1Crops2"]
+offset_left = 16.7765
+offset_top = -25.3822
+offset_right = 67.7765
+offset_bottom = 37.6178
+scale = Vector2(-1, 1)
 text = "0"
 label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player1Wheat" type="Label" parent="Board2"]
-offset_left = 32.4364
-offset_top = -12.1212
-offset_right = 42.4364
-offset_bottom = 4.87878
+[node name="Player2Tomatoes" type="Label" parent="Control/Player1Crops2"]
+offset_left = -58.1186
+offset_top = -25.3822
+offset_right = -7.11863
+offset_bottom = 37.6178
+scale = Vector2(-1, 1)
 text = "0"
 label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
