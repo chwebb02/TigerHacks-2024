@@ -1,10 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 [gd_scene load_steps=31 format=3 uid="uid://bmqdp6xhe3cmp"]
 =======
 [gd_scene load_steps=30 format=3 uid="uid://bmqdp6xhe3cmp"]
 >>>>>>> parent of 4d8d588 (LFG)
 
+=======
+[gd_scene load_steps=30 format=3 uid="uid://bmqdp6xhe3cmp"]
+>>>>>>> parent of 4d8d588 (LFG)
 
 [ext_resource type="Texture2D" uid="uid://lfr8hv00o7l3" path="res://assets/UI/Drawing-14.sketchpad (1).png" id="1_0b7w5"]
 [ext_resource type="Texture2D" uid="uid://3i4ghycf5vix" path="res://assets/UI/Drawing-14.sketchpad.png" id="2_alb47"]
