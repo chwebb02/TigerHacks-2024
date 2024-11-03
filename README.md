@@ -15,7 +15,7 @@ Hay Fever is a fast paced game where you dive into the life of Truman the Farmer
 - Left Arrow - Move Left
 - Right Arrow - Move Right
 - / - Switch Tool
-- Right Shift - Use Tool
+- End - Use Tool
 
 ## Credits
 - Spudy-pixlz - Wooden Fence
