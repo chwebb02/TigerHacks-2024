@@ -21,6 +21,6 @@ Hay Fever is a fast paced game where you dive into the life of Truman the Farmer
 - Spudy-pixlz - Wooden Fence
 - shubibubi - Cozy Farm Asset Pack
 - moodmode - Stray Wolves 
-- pegg - Wheat Stalks Illustration 
-
+- pegg - Wheat Stalks Illustration
+- ChatGPT - Truman Icon and HUD Vegetables
 
