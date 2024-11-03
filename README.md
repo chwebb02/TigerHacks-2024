@@ -1,5 +1,5 @@
 # **Hay Fever**
-Insert fun description of the game here...
+Hay Fever is a fast paced game where you dive into the life of Truman the Farmer, a humble crop producer who tends his fields to make money at the farmers market. His neighbor, however, wants the same.
 
 ## Player 1 Controls
 - W - Move Forward
