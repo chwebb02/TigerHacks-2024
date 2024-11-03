@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 signal throw_egg
+signal harvest
+signal add_points
 
 # Player 1 or two (can be extended later)
 @export var player_number: int = 1
@@ -38,6 +40,7 @@ var multitool_enabled: bool = false
 var tool_cursor: int = 0
 var tools: Array = ["scythe", "hoe", "shovel"]
 var tools_enabled: Dictionary = {"scythe": true, "hoe": true, "shovel": true}
+var tools_to_crop: Dictionary = {"scythe": "wheat", "hoe": "potato", "shovel": "tomato"}
 
 # Define the player number
 var player: String = "player_"
@@ -53,21 +56,19 @@ func handle_movement() -> void:
 	if Input.is_action_pressed(player + "right"):
 		velocity_change.x += acceleration * speed_modifier
 		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.play("side")
 		dir = "side"
 	if Input.is_action_pressed(player + "left"):
 		velocity_change.x -= acceleration * speed_modifier
 		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("side")
 		dir = "side"
 	if Input.is_action_pressed(player + "up"):
 		velocity_change.y -= acceleration * speed_modifier
-		$AnimatedSprite2D.play("up")
 		dir = "up"
 	if Input.is_action_pressed(player + "down"):
 		velocity_change.y += acceleration * speed_modifier
-		$AnimatedSprite2D.play("down")
 		dir = "down"
+	
+	$AnimatedSprite2D.play(dir)
 	
 	# Slow down in a direction if no accleration is applied in that direction
 	if (velocity_change.x == 0):
@@ -87,8 +88,24 @@ func handle_movement() -> void:
 		$AnimatedSprite2D.play("idle_" + str(dir))
 		velocity = Vector2(0, 0)
 	
+	if dir == "down":
+		$HarvestArea.rotation_degrees = 0
+	elif dir == "side":
+		var mod = 1 if $AnimatedSprite2D.flip_h else -1
+		$HarvestArea.rotation_degrees = 90 * mod
+	elif dir == "up":
+		$HarvestArea.rotation_degrees = 180
+	
 	# Actually move around
 	move_and_slide()
+
+func modify_harvest_area():
+	if tools[tool_cursor] == "scythe":
+		$HarvestArea/CollisionShape2D.scale = Vector2(16, 1)
+	elif tools[tool_cursor] == "hoe":
+		$HarvestArea/CollisionShape2D.scale = Vector2(6, 2)
+	else:
+		$HarvestArea/CollisionShape2D.scale = Vector2(3, 1)
 
 func switch_tool() -> void:
 	var i = 0
@@ -98,17 +115,24 @@ func switch_tool() -> void:
 			break
 		
 		i += 1
+	
+	if multitool_enabled:
+		return
+	
+	modify_harvest_area()
 
 func _process(delta: float) -> void:
 	handle_movement()
 	
 	if Input.is_action_just_pressed(player + "change_tool"):
 		switch_tool()
-		
+	
 	if Input.is_action_just_pressed(player + "use_tool"):
+		if multitool_enabled:
+			emit_signal("harvest", "all", $".")
+		
 		if tools_enabled[tools[tool_cursor]]:
-			var sig = "use_" + tools[tool_cursor]
-			emit_signal(sig)
+			emit_signal("harvest", tools_to_crop[tools[tool_cursor]], $".")
 
 func disable_tool():
 	tools_enabled[tools[tool_cursor]] = false
@@ -134,6 +158,7 @@ func _on_power_up(type: String) -> void:
 		$FertilizerTimer.start(randf_range(fertilizer_min_time, fertilizer_max_time))
 	elif (type == "multitool"):
 		multitool_enabled = true
+		$HarvestArea/CollisionShape2D.scale = Vector2(16, 1)
 		$MultitoolTimer.start(randf_range(multitool_min_time, multitool_max_time))
 	else:
 		speed_modifier *= (1 + feather_speedup_factor)
@@ -147,6 +172,7 @@ func _on_feather_timer_timeout() -> void:
 	speed_modifier = 1
 
 func _on_multitool_timer_timeout() -> void:
+	modify_harvest_area()
 	multitool_enabled = false
 
 func _on_egg_timer_timeout() -> void:
@@ -160,3 +186,7 @@ func _on_poop_timer_timeout() -> void:
 func _on_football_timer_timeout() -> void:
 	for tool in tools:
 		tools_enabled[tool] = true
+
+func _on_harvest_crop(value: int) -> void:
+	value *= yield_modifier
+	emit_signal("add_points", value)
