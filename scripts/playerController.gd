@@ -117,7 +117,7 @@ func switch_tool() -> void:
 		i += 1
 	
 	if multitool_enabled:
-		emit_signal("switch_to_tool", "multitool")
+		emit_signal("switch_to_tool", "all")
 		return
 	
 	emit_signal("switch_to_tool", tools[tool_cursor])

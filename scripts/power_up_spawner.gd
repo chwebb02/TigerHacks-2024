@@ -2,7 +2,7 @@ extends Node2D
 
 @export var all_power_up_spawn_chance: int = 1
 @export var all_power_up_spawn_opportunities: int = 600
-@export var power_up_rate: Dictionary = {"multitool": 10, "feather": 60, "fertilizer": 30}
+@export var power_up_rate: Dictionary = {"multitool": 20, "feather": 50, "fertilizer": 30}
 
 var power_up_scene: PackedScene = preload("res://scenes/Power_Up.tscn")
 
