@@ -16,7 +16,6 @@ var lookup: Dictionary = {"wheat": TYPE.WHEAT, "potato": TYPE.POTATO, "tomato":T
 func spawn_crop():
 	var val = randi_range(0, 100)
 	var crop_type = "wheat"
-	print(val)
 	if 0 <= val and val < crop_rate["tomato"]:
 		crop_type = "tomato"
 	elif crop_rate["tomato"] <= val and val < crop_rate["tomato"] + crop_rate["potato"]:
