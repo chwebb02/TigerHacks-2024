@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bmqdp6xhe3cmp"]
+[gd_scene load_steps=30 format=3 uid="uid://bmqdp6xhe3cmp"]
 
 [ext_resource type="Texture2D" uid="uid://lfr8hv00o7l3" path="res://assets/UI/Drawing-14.sketchpad (1).png" id="1_0b7w5"]
 [ext_resource type="Texture2D" uid="uid://3i4ghycf5vix" path="res://assets/UI/Drawing-14.sketchpad.png" id="2_alb47"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://fjpj0df1tgaq" path="res://assets/InGameUI/Screenshot_2024-11-02_174509-removebg-preview.png" id="7_8kby1"]
 [ext_resource type="Texture2D" uid="uid://clwefkxn74n5h" path="res://assets/InGameUI/Screenshot_2024-11-02_175003-removebg-preview.png" id="8_acyv7"]
 [ext_resource type="Texture2D" uid="uid://cst7hvc8bil73" path="res://assets/Debuffs/eggsplatteranimation.png" id="11_lwqo7"]
+[ext_resource type="Script" path="res://assets/InGameUI/player_2_tool.gd" id="12_alu3u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_027n2"]
 font_size = 50
@@ -364,7 +365,8 @@ libraries = {
 }
 
 [node name="EggSplat" type="AnimatedSprite2D" parent="Control2/Player1Tool"]
-position = Vector2(2578, -814)
+visible = false
+position = Vector2(860, -814)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_tujn0")
 
@@ -372,7 +374,7 @@ sprite_frames = SubResource("SpriteFrames_tujn0")
 position = Vector2(1713.32, 11)
 scale = Vector2(-0.5, 0.5)
 texture = ExtResource("6_8mdqm")
-script = ExtResource("6_rw0vq")
+script = ExtResource("12_alu3u")
 
 [node name="Player2Spinner" type="Container" parent="Control2/Player2Tool"]
 offset_right = 40.0
@@ -405,3 +407,10 @@ root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_x4mqk")
 }
+
+[node name="EggSplat2" type="AnimatedSprite2D" parent="Control2/Player2Tool"]
+visible = false
+position = Vector2(804.64, -832)
+rotation = 3.14159
+scale = Vector2(1.2, -1.2)
+sprite_frames = SubResource("SpriteFrames_tujn0")
