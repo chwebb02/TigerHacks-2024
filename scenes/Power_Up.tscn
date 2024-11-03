@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_eylv0"]
 
 [node name="Power-Up" type="Area2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_mw3f4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
