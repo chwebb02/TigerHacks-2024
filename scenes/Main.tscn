@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://coy6a3up4j3go"]
+[gd_scene load_steps=9 format=3 uid="uid://coy6a3up4j3go"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_0dd0i"]
 [ext_resource type="PackedScene" uid="uid://e3kjyvk13fha" path="res://scenes/Player.tscn" id="1_aj61n"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/power_up_spawner.gd" id="3_ijjja"]
 [ext_resource type="PackedScene" uid="uid://d1fglwj1m1g23" path="res://scenes/Tile_Map.tscn" id="3_yjyw0"]
 [ext_resource type="Script" path="res://scripts/crop_spawner.gd" id="4_b0mn1"]
+[ext_resource type="PackedScene" uid="uid://bmqdp6xhe3cmp" path="res://assets/InGameUI/InGameUI.tscn" id="7_ebxvb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwydo"]
 
@@ -85,3 +86,12 @@ player_number = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.333, 1.333)
+
+[node name="InGameUi" parent="." instance=ExtResource("7_ebxvb")]
+position = Vector2(-715, -410)
+scale = Vector2(0.75, 0.75)
+
+[connection signal="switch_to_tool" from="Player1" to="InGameUi" method="_on_player_1_switch_to_tool"]
+[connection signal="throw_egg" from="Player1" to="InGameUi" method="_on_player_1_throw_egg"]
+[connection signal="switch_to_tool" from="Player2" to="InGameUi" method="_on_player_2_switch_to_tool"]
+[connection signal="throw_egg" from="Player2" to="InGameUi" method="_on_player_2_throw_egg"]
