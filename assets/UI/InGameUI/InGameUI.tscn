@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bmqdp6xhe3cmp"]
+[gd_scene load_steps=57 format=3 uid="uid://bmqdp6xhe3cmp"]
 
 [ext_resource type="Texture2D" uid="uid://lfr8hv00o7l3" path="res://assets/UI/Drawing-14.sketchpad (1).png" id="1_0b7w5"]
 [ext_resource type="Script" path="res://assets/UI/InGameUI/in_game_ui.gd" id="1_7ek1a"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dvs5pyd8w6jq1" path="res://assets/UI/InGameUI/Drawing-16.sketchpad.png" id="5_5m7ps"]
 [ext_resource type="Texture2D" uid="uid://d3uj5m7suhyem" path="res://assets/UI/InGameUI/Drawing-16.sketchpad (1).png" id="6_8mdqm"]
 [ext_resource type="Texture2D" uid="uid://bm8h5uwmisf42" path="res://assets/UI/InGameUI/Screenshot_2024-11-02_173126-removebg-preview.png" id="6_eigl1"]
+[ext_resource type="Script" path="res://assets/UI/InGameUI/player_1_crops.gd" id="6_vrm0p"]
 [ext_resource type="Texture2D" uid="uid://fjpj0df1tgaq" path="res://assets/UI/InGameUI/Screenshot_2024-11-02_174509-removebg-preview.png" id="7_8kby1"]
 [ext_resource type="Script" path="res://assets/UI/InGameUI/player_1_tool.gd" id="7_rk7oq"]
 [ext_resource type="Texture2D" uid="uid://clwefkxn74n5h" path="res://assets/UI/InGameUI/Screenshot_2024-11-02_175003-removebg-preview.png" id="8_acyv7"]
@@ -16,6 +17,18 @@
 [ext_resource type="Texture2D" uid="uid://c5bgpv4iw0esg" path="res://assets/UI/InGameUI/tomato.png" id="14_s7m60"]
 [ext_resource type="Texture2D" uid="uid://b2ob0lbw6sbpd" path="res://assets/UI/InGameUI/potato.png" id="15_c8rhr"]
 [ext_resource type="Texture2D" uid="uid://bm0wg8rxafsbs" path="res://assets/UI/InGameUI/finalwheat.png" id="16_gkvah"]
+[ext_resource type="Texture2D" uid="uid://bmqrm5p1vkxw6" path="res://assets/UI/Designer.jpeg" id="18_tsm2q"]
+[ext_resource type="Texture2D" uid="uid://capf8j6enpvlk" path="res://assets/UI/Drawing-19.sketchpad (1).png" id="19_c23i8"]
+[ext_resource type="Texture2D" uid="uid://bdd12wos0d1b2" path="res://assets/UI/Drawing-18.sketchpad (2).png" id="19_phljb"]
+[ext_resource type="Texture2D" uid="uid://vgh02s03iwv5" path="res://assets/UI/Drawing-18.sketchpad (1).png" id="20_i7vri"]
+[ext_resource type="Texture2D" uid="uid://0mgucgfenqgj" path="res://assets/UI/Drawing-18.sketchpad (4).png" id="22_24h21"]
+[ext_resource type="Texture2D" uid="uid://nv0k2xlaoncr" path="res://assets/UI/Drawing-18.sketchpad (3).png" id="23_w5jmi"]
+[ext_resource type="Texture2D" uid="uid://c4gaoq3lmqa1q" path="res://assets/UI/Drawing-18.sketchpad (5).png" id="24_07pos"]
+[ext_resource type="AudioStream" uid="uid://iptbqq5kqvp5" path="res://assets/audio/happy-funny-kids-111912.mp3" id="25_11kdj"]
+[ext_resource type="AudioStream" uid="uid://bkdjdk6oecy1r" path="res://assets/audio/clock-ticking-sound-effect-240503.mp3" id="26_en80k"]
+[ext_resource type="AudioStream" uid="uid://ceb7w6cd3obmy" path="res://assets/audio/boom-2b-cinematic-237004.mp3" id="27_j6tog"]
+[ext_resource type="AudioStream" uid="uid://8d2v7adisunb" path="res://assets/audio/bell-98033.mp3" id="28_fw1do"]
+[ext_resource type="AudioStream" uid="uid://dmwg1s4xpxfj5" path="res://assets/audio/tap-room-rag-183462.mp3" id="29_vjgnj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_027n2"]
 font_size = 50
@@ -26,6 +39,8 @@ outline_color = Color(0.540365, 0.436242, 0.111983, 1)
 font_size = 20
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_v37f5"]
 
 [sub_resource type="Animation" id="Animation_rf6pj"]
 resource_name = "Hoe"
@@ -202,7 +217,41 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="FontFile" id="FontFile_qjtrw"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_kbpbt"]
+default_font = SubResource("FontFile_qjtrw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xffe7"]
+
+[sub_resource type="Gradient" id="Gradient_rfvtn"]
+colors = PackedColorArray(0.411765, 0.313726, 0.105882, 1, 0.411765, 0.313726, 0.105882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4na8i"]
+gradient = SubResource("Gradient_rfvtn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3j5n"]
+texture = SubResource("GradientTexture2D_4na8i")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6rago"]
+font_size = 50
+
+[sub_resource type="Gradient" id="Gradient_cf2gv"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7lf6m"]
+gradient = SubResource("Gradient_cf2gv")
+
 [node name="InGameUi" type="Node2D"]
+z_index = 30
 script = ExtResource("1_7ek1a")
 
 [node name="Control" type="Control" parent="."]
@@ -253,6 +302,7 @@ texture_filter = 1
 position = Vector2(432, 114)
 scale = Vector2(2.75, 2.75)
 texture = ExtResource("4_48pls")
+script = ExtResource("6_vrm0p")
 
 [node name="Player1Tomatoes" type="Label" parent="Control/Player1Crops"]
 z_index = 10
@@ -287,13 +337,14 @@ label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player1Crops2" type="Sprite2D" parent="Control"]
+[node name="Player2Crops" type="Sprite2D" parent="Control"]
 texture_filter = 1
 position = Vector2(1465, 114)
 scale = Vector2(-2.75, 2.75)
 texture = ExtResource("4_48pls")
+script = SubResource("GDScript_v37f5")
 
-[node name="Player2Wheat" type="Label" parent="Control/Player1Crops2"]
+[node name="Player2Wheat" type="Label" parent="Control/Player2Crops"]
 z_index = 5
 offset_left = 91.6717
 offset_top = -25.959
@@ -305,7 +356,7 @@ label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player2Potatoes" type="Label" parent="Control/Player1Crops2"]
+[node name="Player2Potatoes" type="Label" parent="Control/Player2Crops"]
 z_index = 10
 offset_left = 16.7765
 offset_top = -25.3822
@@ -317,7 +368,7 @@ label_settings = SubResource("LabelSettings_k2mqf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player2Tomatoes" type="Label" parent="Control/Player1Crops2"]
+[node name="Player2Tomatoes" type="Label" parent="Control/Player2Crops"]
 z_index = 10
 offset_left = -58.1186
 offset_top = -25.3822
@@ -455,3 +506,150 @@ texture = ExtResource("16_gkvah")
 position = Vector2(1242, 102)
 scale = Vector2(0.428, 0.452)
 texture = ExtResource("16_gkvah")
+
+[node name="Control3" type="Control" parent="."]
+visible = false
+z_index = 50
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1926.0
+offset_bottom = 1087.0
+
+[node name="TextureRect3" type="TextureRect" parent="Control3"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -322.0
+offset_right = 1918.0
+offset_bottom = 1104.0
+texture = ExtResource("18_tsm2q")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Control3"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 638.0
+offset_right = 1933.0
+offset_bottom = 1094.0
+texture = ExtResource("19_c23i8")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control3"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 104.0
+offset_right = 1074.0
+offset_bottom = 956.0
+texture = ExtResource("19_phljb")
+expand_mode = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control3/TextureRect"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 471.0
+offset_right = 711.0
+offset_bottom = 967.0
+scale = Vector2(0.7, 0.7)
+fill_mode = 3
+texture_under = ExtResource("22_24h21")
+texture_over = ExtResource("23_w5jmi")
+texture_progress = ExtResource("24_07pos")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control3/TextureRect/TextureProgressBar"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = -86.0
+offset_right = 214.0
+offset_bottom = 133.0
+theme = SubResource("Theme_kbpbt")
+theme_override_styles/background = SubResource("StyleBoxTexture_xffe7")
+theme_override_styles/fill = SubResource("StyleBoxTexture_m3j5n")
+step = 2.0
+fill_mode = 2
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control3/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.246
+anchor_bottom = 0.13
+offset_left = 371.0
+offset_top = 265.0
+offset_right = 282.268
+offset_bottom = 223.24
+label_settings = SubResource("LabelSettings_6rago")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Control3"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 110.0
+offset_right = 1798.0
+offset_bottom = 962.0
+texture = ExtResource("20_i7vri")
+expand_mode = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control3/TextureRect2"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 471.0
+offset_right = 711.0
+offset_bottom = 967.0
+scale = Vector2(0.7, 0.7)
+fill_mode = 3
+texture_under = ExtResource("22_24h21")
+texture_over = ExtResource("23_w5jmi")
+texture_progress = ExtResource("24_07pos")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control3/TextureRect2/TextureProgressBar"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = -86.0
+offset_right = 214.0
+offset_bottom = 133.0
+theme = SubResource("Theme_kbpbt")
+theme_override_styles/background = SubResource("StyleBoxTexture_xffe7")
+theme_override_styles/fill = SubResource("StyleBoxTexture_m3j5n")
+step = 2.0
+fill_mode = 2
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control3/TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.246
+anchor_bottom = 0.13
+offset_left = 371.0
+offset_top = 265.0
+offset_right = 282.268
+offset_bottom = 223.24
+label_settings = SubResource("LabelSettings_6rago")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_11kdj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+z_index = 70
+offset_left = -27.0
+offset_top = -338.0
+offset_right = 1913.0
+offset_bottom = 1109.0
+texture = SubResource("GradientTexture2D_7lf6m")
+
+[node name="Timer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_en80k")
+volume_db = 10.0
+
+[node name="Boom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_j6tog")
+volume_db = 5.0
+
+[node name="Bell" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("28_fw1do")
+volume_db = 5.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("29_vjgnj")

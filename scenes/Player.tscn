@@ -1,10 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://e3kjyvk13fha"]
+[gd_scene load_steps=40 format=3 uid="uid://e3kjyvk13fha"]
 
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vdjrt"]
 [ext_resource type="Texture2D" uid="uid://dir372buda8hl" path="res://assets/truman/Truman Front.png" id="2_81k0t"]
 [ext_resource type="Texture2D" uid="uid://buk2grgdms40t" path="res://assets/truman/Side Truman.png" id="3_bdt3n"]
 [ext_resource type="Texture2D" uid="uid://dnp411u8psoas" path="res://assets/truman/Truman Side.png" id="3_ykolr"]
-[ext_resource type="Texture2D" uid="uid://dxbsbs4g70feq" path="res://assets/icon.svg" id="5_iual0"]
+[ext_resource type="Texture2D" uid="uid://c74rqnfgvlnys" path="res://assets/tools/hoe.png" id="5_6xj6r"]
+[ext_resource type="Texture2D" uid="uid://c3vvsugnbkl53" path="res://assets/tools/scythe.png" id="6_va8qw"]
+[ext_resource type="Texture2D" uid="uid://dcnecnx4dclbc" path="res://assets/tools/shovel.png" id="7_rev6o"]
+[ext_resource type="AudioStream" uid="uid://b8fo8btqih51y" path="res://assets/audio/hoe.mp3" id="8_kaoqt"]
+[ext_resource type="AudioStream" uid="uid://bvtyn40n7sdw" path="res://assets/audio/scythe.mp3" id="9_1e2tp"]
+[ext_resource type="AudioStream" uid="uid://der210fv32fnd" path="res://assets/audio/shovel.mp3" id="10_dqfdd"]
+[ext_resource type="AudioStream" uid="uid://b43lepqocun47" path="res://assets/audio/change.mp3" id="11_5j068"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gupl3"]
 atlas = ExtResource("2_81k0t")
@@ -108,7 +114,117 @@ size = Vector2(11.6667, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6eoh"]
 size = Vector2(15, 120)
 
+[sub_resource type="Gradient" id="Gradient_kre86"]
+offsets = PackedFloat32Array(0, 0.954545, 1)
+colors = PackedColorArray(0, 0.882353, 0, 0.556863, 0.954545, 0.994652, 0.954545, 0.204991, 0.447059, 0.717647, 0.290196, 0.0941176)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3hv3m"]
+gradient = SubResource("Gradient_kre86")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d71yi"]
+atlas = ExtResource("5_6xj6r")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddmn0"]
+atlas = ExtResource("5_6xj6r")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0x60"]
+atlas = ExtResource("5_6xj6r")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_meohv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d71yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddmn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0x60")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcxv7"]
+atlas = ExtResource("6_va8qw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lh3q"]
+atlas = ExtResource("6_va8qw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hppej"]
+atlas = ExtResource("6_va8qw")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jd2m"]
+atlas = ExtResource("6_va8qw")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ik7gf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcxv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lh3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hppej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jd2m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qrsy"]
+atlas = ExtResource("7_rev6o")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1mco"]
+atlas = ExtResource("7_rev6o")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5na8g"]
+atlas = ExtResource("7_rev6o")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtc2r"]
+atlas = ExtResource("7_rev6o")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m68ua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qrsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1mco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5na8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtc2r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
+z_index = 3
 scale = Vector2(0.4, 0.4)
 collision_layer = 7
 collision_mask = 7
@@ -116,6 +232,7 @@ motion_mode = 1
 script = ExtResource("1_vdjrt")
 max_speed = 512.0
 slowdown_factor = 0.13
+multitool_max_time = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o8t5b")
@@ -150,9 +267,41 @@ scale = Vector2(16, 1)
 shape = SubResource("RectangleShape2D_n6eoh")
 
 [node name="Sprite2D" type="Sprite2D" parent="HarvestArea/CollisionShape2D"]
-position = Vector2(5.96046e-07, 2)
-scale = Vector2(0.117188, 0.96875)
-texture = ExtResource("5_iual0")
+z_index = -1
+position = Vector2(4.76837e-07, 9.53674e-07)
+scale = Vector2(0.234375, 1.875)
+texture = SubResource("GradientTexture2D_3hv3m")
+
+[node name="Tools" type="Container" parent="."]
+offset_top = 10.0
+offset_right = 40.0
+offset_bottom = 50.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Tools"]
+visible = false
+position = Vector2(0, 9.53674e-07)
+sprite_frames = SubResource("SpriteFrames_meohv")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Tools"]
+visible = false
+position = Vector2(0, 9.53674e-07)
+sprite_frames = SubResource("SpriteFrames_ik7gf")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Tools"]
+position = Vector2(0, 9.53674e-07)
+sprite_frames = SubResource("SpriteFrames_m68ua")
+
+[node name="Hoe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_kaoqt")
+
+[node name="Scythe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_1e2tp")
+
+[node name="Shovel" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_dqfdd")
+
+[node name="SwitchTool" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_5j068")
 
 [connection signal="timeout" from="FootballTimer" to="." method="_on_football_timer_timeout"]
 [connection signal="timeout" from="PoopTimer" to="." method="_on_poop_timer_timeout"]

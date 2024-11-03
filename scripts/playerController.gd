@@ -47,6 +47,7 @@ var tools_to_crop: Dictionary = {"scythe": "wheat", "hoe": "potato", "shovel": "
 var player: String = "player_"
 func _ready() -> void:
 	player = player + str(player_number) + "_"
+	switch_tool()
 
 # Handle movement for a single frame
 var dir = "down"
@@ -57,17 +58,29 @@ func handle_movement() -> void:
 	if Input.is_action_pressed(player + "right"):
 		velocity_change.x += acceleration * speed_modifier
 		$AnimatedSprite2D.flip_h = false
+		$Tools.position.x = 20
+		$Tools.scale.x = 1
+		$Tools.z_index = 1
 		dir = "side"
 	if Input.is_action_pressed(player + "left"):
 		velocity_change.x -= acceleration * speed_modifier
 		$AnimatedSprite2D.flip_h = true
+		$Tools.position.x = -20
+		$Tools.scale.x = -1
+		$Tools.z_index = 1
 		dir = "side"
 	if Input.is_action_pressed(player + "up"):
 		velocity_change.y -= acceleration * speed_modifier
+		$Tools.position.x = 20
+		$Tools.z_index = -1
+		$Tools.scale.x = .6
 		dir = "up"
 	if Input.is_action_pressed(player + "down"):
 		velocity_change.y += acceleration * speed_modifier
 		dir = "down"
+		$Tools.position.x = 20
+		$Tools.scale.x = .6
+		$Tools.z_index = 1
 	
 	$AnimatedSprite2D.play(dir)
 	
@@ -109,10 +122,21 @@ func modify_harvest_area():
 		$HarvestArea/CollisionShape2D.scale = Vector2(3, 1)
 
 func switch_tool() -> void:
+	$SwitchTool.play()
 	var i = 0
 	while i < 3:
 		tool_cursor = (tool_cursor + 1) % len(tools)
+		$Tools/AnimatedSprite2D2.visible = false
+		$Tools/AnimatedSprite2D3.visible = false
+		$Tools/AnimatedSprite2D4.visible = false
 		if tools_enabled[tools[tool_cursor]]:
+			if tools[tool_cursor] == "hoe":
+				$Tools/AnimatedSprite2D2.visible = true
+			if tools[tool_cursor] == "shovel":
+				$Tools/AnimatedSprite2D4.visible = true
+			if tools[tool_cursor] == "scythe":
+				$Tools/AnimatedSprite2D3.visible = true
+				
 			break
 		
 		i += 1
@@ -136,7 +160,29 @@ func _process(delta: float) -> void:
 			emit_signal("harvest", "all", $".")
 		
 		if tools_enabled[tools[tool_cursor]]:
+			var tool
+			print(tools_enabled[tools[tool_cursor]])
+			if(tools[tool_cursor] == "hoe"):
+				$Hoe.play()
+				tool = $Tools/AnimatedSprite2D2
+			if(tools[tool_cursor] == "scythe"):
+				$Scythe.play()
+				tool = $Tools/AnimatedSprite2D3
+			if(tools[tool_cursor] == "shovel"):
+				$Shovel.play()
+				tool = $Tools/AnimatedSprite2D4
+			
 			emit_signal("harvest", tools_to_crop[tools[tool_cursor]], $".")
+			tool.frame = 1
+			await get_tree().create_timer(.1).timeout
+			tool.frame = 2
+			await get_tree().create_timer(.1).timeout
+			tool.frame = 3
+			await get_tree().create_timer(.1).timeout
+			tool.frame = 0
+			await get_tree().create_timer(.1).timeout
+			
+			
 
 func disable_tool():
 	tools_enabled[tools[tool_cursor]] = false

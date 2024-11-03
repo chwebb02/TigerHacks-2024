@@ -96,7 +96,13 @@ zoom = Vector2(1.333, 1.333)
 position = Vector2(-720, -410)
 scale = Vector2(0.75, 0.75)
 
+[connection signal="all_tools_enabled" from="Player1" to="InGameUi" method="_on_player_1_all_tools_enabled"]
+[connection signal="collect_crop" from="Player1" to="InGameUi" method="_on_player_1_collect_crop"]
 [connection signal="switch_to_tool" from="Player1" to="InGameUi" method="_on_player_1_switch_to_tool"]
 [connection signal="throw_egg" from="Player1" to="InGameUi" method="_on_player_1_throw_egg"]
+[connection signal="tool_disabled" from="Player1" to="InGameUi" method="_on_player_1_tool_disabled"]
+[connection signal="all_tools_enabled" from="Player2" to="InGameUi" method="_on_player_2_all_tools_enabled"]
+[connection signal="collect_crop" from="Player2" to="InGameUi" method="_on_player_2_collect_crop"]
 [connection signal="switch_to_tool" from="Player2" to="InGameUi" method="_on_player_2_switch_to_tool"]
 [connection signal="throw_egg" from="Player2" to="InGameUi" method="_on_player_2_throw_egg"]
+[connection signal="tool_disabled" from="Player2" to="InGameUi" method="_on_player_2_tool_disabled"]
