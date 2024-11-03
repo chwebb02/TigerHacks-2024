@@ -12,10 +12,16 @@ func changeTool(tool: String):
 	if _animations:
 		if tool == "scythe":
 			_animations.play("Scythe")
+			if get_parent().get_parent().player1tools.has(tool):
+				_animations.play("shovel")
 		if tool == "shovel":
 			_animations.play("Shovel")
+			if get_parent().get_parent().player1tools.has(tool):
+				_animations.play("hoe")
 		if tool == "hoe":
 			_animations.play("Hoe")
+			if get_parent().get_parent().player1tools.has(tool):
+				_animations.play("scythe")
 	else:
 		print("AnimationPlayer node is null")
 

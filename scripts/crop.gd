@@ -40,5 +40,5 @@ func _on_harvest(crop: String, player) -> void:
 	var areas = get_overlapping_areas()
 	for area in areas:
 		if harvestable and area.get_parent() == player and (crop == lookup[crop_type] or crop == "all"):
-			emit_signal("harvest_crop", crop, crop_values[crop_type])
+			emit_signal("harvest_crop", lookup[crop_type], crop_values[crop_type])
 			queue_free()
