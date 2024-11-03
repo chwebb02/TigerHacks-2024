@@ -4,6 +4,8 @@ signal throw_egg
 signal harvest
 signal add_points
 signal switch_to_tool
+signal tool_disabled
+signal all_tools_enabled
 
 # Player 1 or two (can be extended later)
 @export var player_number: int = 1
@@ -138,6 +140,7 @@ func _process(delta: float) -> void:
 
 func disable_tool():
 	tools_enabled[tools[tool_cursor]] = false
+	emit_signal("tool_disabled", tools[tool_cursor])
 	switch_tool()
 
 func display_egg():
@@ -179,10 +182,11 @@ func _on_multitool_timer_timeout() -> void:
 func _on_poop_timer_timeout() -> void:
 	speed_modifier = 1
 
-
 func _on_football_timer_timeout() -> void:
 	for tool in tools:
 		tools_enabled[tool] = true
+	
+	emit_signal("all_tools_enabled")
 
 func _on_harvest_crop(value: int) -> void:
 	value *= yield_modifier

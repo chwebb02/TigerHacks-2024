@@ -17,4 +17,7 @@ func find_spot_for_item() -> Array:
 	else:
 		dir = Vector2(randf_range(max_center_x, max_item_x), randf_range(min_item_y, max_item_y))
 	
+	dir.x = snapped(dir.x, 32)
+	dir.y = snapped(dir.y, 32)
+	
 	return [dir, turn]
