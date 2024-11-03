@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c07twggditpvf"]
+[gd_scene load_steps=10 format=4 uid="uid://c07twggditpvf"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_0dd0i"]
 [ext_resource type="PackedScene" uid="uid://e3kjyvk13fha" path="res://scenes/Player.tscn" id="1_aj61n"]
 [ext_resource type="Script" path="res://scripts/debuff_spawner.gd" id="2_14sld"]
-[ext_resource type="PackedScene" uid="uid://dl6eue6y2saqx" path="res://scenes/Fence.tscn" id="3_0dk6v"]
+[ext_resource type="PackedScene" uid="uid://v51d461hmuy7" path="res://scenes/Fence.tscn" id="3_0dk6v"]
 [ext_resource type="Script" path="res://scripts/power_up_spawner.gd" id="3_ijjja"]
 [ext_resource type="PackedScene" uid="uid://d1fglwj1m1g23" path="res://scenes/Tile_Map.tscn" id="3_yjyw0"]
 [ext_resource type="Script" path="res://scripts/crop_spawner.gd" id="4_b0mn1"]
