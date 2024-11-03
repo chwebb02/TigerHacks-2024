@@ -6,16 +6,12 @@ extends Sprite2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(get_tree().get_nodes_in_group())
 	pass
 	
 func changeTool(tool: String):
 	if _animations:
-		if tool == "scythe":
-			_animations.play("Scythe")
-		if tool == "shovel":
-			_animations.play("Shovel")
-		if tool == "hoe":
-			_animations.play("Hoe")
+		_animations.play(tool)
 	else:
 		print("AnimationPlayer node is null")
 

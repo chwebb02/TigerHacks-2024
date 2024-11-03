@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@onready var _animations = get_node("AnimationPlayer2")
+@onready var _animations = get_node("AnimationPlayer")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -8,13 +8,7 @@ func _process(delta: float) -> void:
 	
 func changeTool(tool: String):
 	if _animations:
-		if tool == "scythe":
-			_animations.play("Scythe2")
-			
-		if tool == "shovel":
-			_animations.play("Shovel2")
-		if tool == "hoe":
-			_animations.play("Hoe2")
+		_animations.play(tool + "2")
 	else:
 		print("AnimationPlayer node is null")
 		
