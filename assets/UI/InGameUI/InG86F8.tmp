@@ -1,0 +1,416 @@
+[gd_scene load_steps=30 format=3 uid="uid://bmqdp6xhe3cmp"]
+
+[ext_resource type="Texture2D" uid="uid://lfr8hv00o7l3" path="res://assets/UI/Drawing-14.sketchpad (1).png" id="1_0b7w5"]
+[ext_resource type="Texture2D" uid="uid://3i4ghycf5vix" path="res://assets/UI/Drawing-14.sketchpad.png" id="2_alb47"]
+[ext_resource type="Texture2D" uid="uid://cnbx2jtgsdqyi" path="res://assets/UI/Drawing-14.sketchpad (2).png" id="3_e5blx"]
+[ext_resource type="Texture2D" uid="uid://b3hrpbmg8ao6c" path="res://assets/UI/pixil-frame-0 (9).png" id="4_48pls"]
+[ext_resource type="Texture2D" uid="uid://dvs5pyd8w6jq1" path="res://assets/InGameUI/Drawing-16.sketchpad.png" id="5_5m7ps"]
+[ext_resource type="Texture2D" uid="uid://d3uj5m7suhyem" path="res://assets/InGameUI/Drawing-16.sketchpad (1).png" id="6_8mdqm"]
+[ext_resource type="Texture2D" uid="uid://bm8h5uwmisf42" path="res://assets/InGameUI/Screenshot_2024-11-02_173126-removebg-preview.png" id="6_eigl1"]
+[ext_resource type="Script" path="res://assets/InGameUI/player_1_tool.gd" id="6_rw0vq"]
+[ext_resource type="Texture2D" uid="uid://fjpj0df1tgaq" path="res://assets/InGameUI/Screenshot_2024-11-02_174509-removebg-preview.png" id="7_8kby1"]
+[ext_resource type="Texture2D" uid="uid://clwefkxn74n5h" path="res://assets/InGameUI/Screenshot_2024-11-02_175003-removebg-preview.png" id="8_acyv7"]
+[ext_resource type="Texture2D" uid="uid://cst7hvc8bil73" path="res://assets/Debuffs/eggsplatteranimation.png" id="11_lwqo7"]
+[ext_resource type="Script" path="res://assets/InGameUI/player_2_tool.gd" id="12_alu3u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_027n2"]
+font_size = 50
+outline_size = 15
+outline_color = Color(0.540365, 0.436242, 0.111983, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k2mqf"]
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_rf6pj"]
+resource_name = "Hoe"
+length = 0.5
+step = 0.003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/Player1Tool/Player1Spinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.309309, 0.441441),
+"transitions": PackedFloat32Array(0.277393, 1, 1),
+"update": 0,
+"values": [0.0, 2.26893, 2.0944]
+}
+
+[sub_resource type="Animation" id="Animation_u233o"]
+resource_name = "Hoe2"
+step = 0.003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/Player2Tool/Player2Spinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.309309, 0.441441),
+"transitions": PackedFloat32Array(0.277393, 1, 1),
+"update": 0,
+"values": [0.0, 2.26893, 2.0944]
+}
+
+[sub_resource type="Animation" id="Animation_rbw2v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/Player1Tool/Player1Spinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_s0oal"]
+resource_name = "Scythe"
+length = 0.5
+step = 0.003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/Player1Tool/Player1Spinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.309309, 0.441441),
+"transitions": PackedFloat32Array(0.277393, 1, 1),
+"update": 0,
+"values": [2.0944, 4.36332, 4.18879]
+}
+
+[sub_resource type="Animation" id="Animation_k6r2i"]
+resource_name = "Scythe2"
+step = 0.003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/Player2Tool/Player2Spinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.309309, 0.441441),
+"transitions": PackedFloat32Array(0.277393, 1, 1),
+"update": 0,
+"values": [2.0944, 4.36332, 4.18879]
+}
+
+[sub_resource type="Animation" id="Animation_7dmbk"]
+resource_name = "Shovel"
+length = 0.5
+step = 0.003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/Player1Tool/Player1Spinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.309309, 0.441441),
+"transitions": PackedFloat32Array(0.277393, 1, 1),
+"update": 0,
+"values": [4.18879, 6.45772, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_jjh1y"]
+resource_name = "Shovel2"
+step = 0.003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/Player2Tool/Player2Spinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.309309, 0.441441),
+"transitions": PackedFloat32Array(0.277393, 1, 1),
+"update": 0,
+"values": [4.18879, 6.45772, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4mqk"]
+_data = {
+"Hoe": SubResource("Animation_rf6pj"),
+"Hoe2": SubResource("Animation_u233o"),
+"RESET": SubResource("Animation_rbw2v"),
+"Scythe": SubResource("Animation_s0oal"),
+"Scythe2": SubResource("Animation_k6r2i"),
+"Shovel": SubResource("Animation_7dmbk"),
+"Shovel2": SubResource("Animation_jjh1y")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxhru"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(0, 0, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lrbi"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(1316, 0, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40gui"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(2632, 0, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pddw5"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(0, 1316, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtjlk"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(1316, 1316, 1316, 1316)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8ugg"]
+atlas = ExtResource("11_lwqo7")
+region = Rect2(2632, 1316, 1316, 1316)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tujn0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxhru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lrbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40gui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pddw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtjlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8ugg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="InGameUi" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 645.0
+
+[node name="TimerVisual" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.781
+anchor_top = 0.026
+anchor_right = 0.885
+anchor_bottom = 0.195
+offset_left = -32.15
+offset_top = -10.77
+offset_right = 1048.25
+offset_bottom = 1080.22
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+value = 100.0
+fill_mode = 4
+radial_fill_degrees = 0.0
+texture_under = ExtResource("1_0b7w5")
+texture_over = ExtResource("2_alb47")
+texture_progress = ExtResource("3_e5blx")
+
+[node name="TimerText" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.803
+anchor_top = 0.099
+anchor_right = 0.859
+anchor_bottom = 0.195
+offset_left = -10.45
+offset_top = -11.855
+offset_right = 11.15
+offset_bottom = 14.225
+text = "90"
+label_settings = SubResource("LabelSettings_027n2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1Crops" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(432, 114)
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("4_48pls")
+
+[node name="Player1Tomatoes" type="Label" parent="Control/Player1Crops"]
+offset_left = -90.1873
+offset_top = -27.4038
+offset_right = -39.1873
+offset_bottom = 35.5962
+text = "0"
+label_settings = SubResource("LabelSettings_k2mqf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1Potatoes" type="Label" parent="Control/Player1Crops"]
+offset_left = -7.79026
+offset_top = -27.4038
+offset_right = 43.2097
+offset_bottom = 35.5962
+text = "0"
+label_settings = SubResource("LabelSettings_k2mqf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1Wheat" type="Label" parent="Control/Player1Crops"]
+offset_left = 69.2135
+offset_top = -27.9808
+offset_right = 120.213
+offset_bottom = 35.0192
+text = "0"
+label_settings = SubResource("LabelSettings_k2mqf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1Crops2" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(1465, 114)
+scale = Vector2(-2.75, 2.75)
+texture = ExtResource("4_48pls")
+
+[node name="Player2Wheat" type="Label" parent="Control/Player1Crops2"]
+offset_left = 91.6717
+offset_top = -25.959
+offset_right = 142.672
+offset_bottom = 37.041
+scale = Vector2(-1, 1)
+text = "0"
+label_settings = SubResource("LabelSettings_k2mqf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player2Potatoes" type="Label" parent="Control/Player1Crops2"]
+offset_left = 16.7765
+offset_top = -25.3822
+offset_right = 67.7765
+offset_bottom = 37.6178
+scale = Vector2(-1, 1)
+text = "0"
+label_settings = SubResource("LabelSettings_k2mqf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player2Tomatoes" type="Label" parent="Control/Player1Crops2"]
+offset_left = -58.1186
+offset_top = -25.3822
+offset_right = -7.11863
+offset_bottom = 37.6178
+scale = Vector2(-1, 1)
+text = "0"
+label_settings = SubResource("LabelSettings_k2mqf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 970.0
+offset_right = 146.0
+offset_bottom = 1010.0
+
+[node name="Player1Tool" type="Sprite2D" parent="Control2"]
+position = Vector2(-5, 11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_5m7ps")
+script = ExtResource("6_rw0vq")
+
+[node name="Player1Spinner" type="Container" parent="Control2/Player1Tool"]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(-170, 200)
+
+[node name="Player1Shovel" type="Sprite2D" parent="Control2/Player1Tool/Player1Spinner"]
+position = Vector2(-170, 200)
+rotation = 0.610865
+scale = Vector2(0.948454, 0.875583)
+texture = ExtResource("6_eigl1")
+offset = Vector2(0, -400)
+
+[node name="Player1Hoe" type="Sprite2D" parent="Control2/Player1Tool/Player1Spinner"]
+position = Vector2(-170, 200)
+rotation = 1.65806
+scale = Vector2(0.917201, -0.888279)
+texture = ExtResource("7_8kby1")
+offset = Vector2(0, -400)
+
+[node name="Player1Scythe" type="Sprite2D" parent="Control2/Player1Tool/Player1Spinner"]
+position = Vector2(-170, 200)
+rotation = 2.79253
+scale = Vector2(0.995381, 1.04167)
+texture = ExtResource("8_acyv7")
+offset = Vector2(0, -350)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control2/Player1Tool"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_x4mqk")
+}
+
+[node name="EggSplat" type="AnimatedSprite2D" parent="Control2/Player1Tool"]
+visible = false
+position = Vector2(860, -814)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_tujn0")
+
+[node name="Player2Tool" type="Sprite2D" parent="Control2"]
+position = Vector2(1713.32, 11)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("6_8mdqm")
+script = ExtResource("12_alu3u")
+
+[node name="Player2Spinner" type="Container" parent="Control2/Player2Tool"]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(-170, 200)
+
+[node name="Player2Shovel" type="Sprite2D" parent="Control2/Player2Tool/Player2Spinner"]
+position = Vector2(-170, 200)
+rotation = 0.610865
+scale = Vector2(0.948454, 0.875583)
+texture = ExtResource("6_eigl1")
+offset = Vector2(0, -400)
+
+[node name="Player2Hoe" type="Sprite2D" parent="Control2/Player2Tool/Player2Spinner"]
+position = Vector2(-170, 200)
+rotation = 1.65806
+scale = Vector2(0.917201, -0.888279)
+texture = ExtResource("7_8kby1")
+offset = Vector2(0, -400)
+
+[node name="Player2Scythe" type="Sprite2D" parent="Control2/Player2Tool/Player2Spinner"]
+position = Vector2(-170, 200)
+rotation = 2.79253
+scale = Vector2(0.995381, 1.04167)
+texture = ExtResource("8_acyv7")
+offset = Vector2(0, -350)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Control2/Player2Tool"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_x4mqk")
+}
+
+[node name="EggSplat2" type="AnimatedSprite2D" parent="Control2/Player2Tool"]
+visible = false
+position = Vector2(804.64, -832)
+rotation = 3.14159
+scale = Vector2(1.2, -1.2)
+sprite_frames = SubResource("SpriteFrames_tujn0")
