@@ -42,5 +42,5 @@ func _on_harvest(crop: String, player) -> void:
 	if harvestable and areas.size() > 0:
 		for area in areas:
 			if (crop == lookup[crop_type] or crop == "all") and player.player_number == field_number:
-				emit_signal("harvest_crop", crop_values[crop_type])
+				emit_signal("harvest_crop", lookup[crop_type], crop_values[crop_type])
 				queue_free()

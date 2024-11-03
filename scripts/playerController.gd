@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 signal throw_egg
 signal harvest
-signal add_points
 signal switch_to_tool
 signal tool_disabled
 signal all_tools_enabled
+signal harvest_item
 
 # Player 1 or two (can be extended later)
 @export var player_number: int = 1
@@ -188,6 +188,6 @@ func _on_football_timer_timeout() -> void:
 	
 	emit_signal("all_tools_enabled")
 
-func _on_harvest_crop(value: int) -> void:
+func _on_harvest_crop(type: String, value: int) -> void:
 	value *= yield_modifier
-	emit_signal("add_points", value)
+	emit_signal("harvest_item", type, yield_modifier, value)
