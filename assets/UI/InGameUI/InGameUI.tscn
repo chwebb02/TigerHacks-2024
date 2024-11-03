@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bmqdp6xhe3cmp"]
+[gd_scene load_steps=34 format=3 uid="uid://bmqdp6xhe3cmp"]
 
 [ext_resource type="Texture2D" uid="uid://lfr8hv00o7l3" path="res://assets/UI/Drawing-14.sketchpad (1).png" id="1_0b7w5"]
 [ext_resource type="Script" path="res://assets/UI/InGameUI/in_game_ui.gd" id="1_7ek1a"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://clwefkxn74n5h" path="res://assets/UI/InGameUI/Screenshot_2024-11-02_175003-removebg-preview.png" id="8_acyv7"]
 [ext_resource type="Texture2D" uid="uid://cst7hvc8bil73" path="res://assets/Debuffs/eggsplatteranimation.png" id="11_lwqo7"]
 [ext_resource type="Script" path="res://assets/UI/InGameUI/player_2_tool.gd" id="13_83buj"]
+[ext_resource type="Texture2D" uid="uid://c5bgpv4iw0esg" path="res://assets/UI/InGameUI/tomato.png" id="14_s7m60"]
+[ext_resource type="Texture2D" uid="uid://b2ob0lbw6sbpd" path="res://assets/UI/InGameUI/potato.png" id="15_c8rhr"]
+[ext_resource type="Texture2D" uid="uid://bm0wg8rxafsbs" path="res://assets/UI/InGameUI/finalwheat.png" id="16_gkvah"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_027n2"]
 font_size = 50
@@ -252,6 +255,7 @@ scale = Vector2(2.75, 2.75)
 texture = ExtResource("4_48pls")
 
 [node name="Player1Tomatoes" type="Label" parent="Control/Player1Crops"]
+z_index = 10
 offset_left = -90.1873
 offset_top = -27.4038
 offset_right = -39.1873
@@ -262,6 +266,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player1Potatoes" type="Label" parent="Control/Player1Crops"]
+z_index = 10
 offset_left = -7.79026
 offset_top = -27.4038
 offset_right = 43.2097
@@ -272,6 +277,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player1Wheat" type="Label" parent="Control/Player1Crops"]
+z_index = 10
 offset_left = 69.2135
 offset_top = -27.9808
 offset_right = 120.213
@@ -288,6 +294,7 @@ scale = Vector2(-2.75, 2.75)
 texture = ExtResource("4_48pls")
 
 [node name="Player2Wheat" type="Label" parent="Control/Player1Crops2"]
+z_index = 5
 offset_left = 91.6717
 offset_top = -25.959
 offset_right = 142.672
@@ -299,6 +306,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player2Potatoes" type="Label" parent="Control/Player1Crops2"]
+z_index = 10
 offset_left = 16.7765
 offset_top = -25.3822
 offset_right = 67.7765
@@ -310,6 +318,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player2Tomatoes" type="Label" parent="Control/Player1Crops2"]
+z_index = 10
 offset_left = -58.1186
 offset_top = -25.3822
 offset_right = -7.11863
@@ -416,3 +425,33 @@ position = Vector2(804.64, -832)
 rotation = 3.14159
 scale = Vector2(1.2, -1.2)
 sprite_frames = SubResource("SpriteFrames_tujn0")
+
+[node name="Tomato" type="Sprite2D" parent="."]
+position = Vector2(228, 92)
+scale = Vector2(0.84, 0.858621)
+texture = ExtResource("14_s7m60")
+
+[node name="Tomato2" type="Sprite2D" parent="."]
+position = Vector2(1669, 100)
+scale = Vector2(0.84, 0.858621)
+texture = ExtResource("14_s7m60")
+
+[node name="Potato" type="Sprite2D" parent="."]
+position = Vector2(429, 87)
+scale = Vector2(0.318182, 0.356154)
+texture = ExtResource("15_c8rhr")
+
+[node name="Potato2" type="Sprite2D" parent="."]
+position = Vector2(1445, 89)
+scale = Vector2(0.318182, 0.356154)
+texture = ExtResource("15_c8rhr")
+
+[node name="Finalwheat" type="Sprite2D" parent="."]
+position = Vector2(647, 102)
+scale = Vector2(0.428, 0.452)
+texture = ExtResource("16_gkvah")
+
+[node name="Finalwheat2" type="Sprite2D" parent="."]
+position = Vector2(1242, 102)
+scale = Vector2(0.428, 0.452)
+texture = ExtResource("16_gkvah")
